@@ -1,0 +1,20 @@
+Name of tables:
+1. Buyers
+2. Farmers
+
+Table of Farmers (Input taken from farmers for our system)
+1.Farmer id
+2.Name
+3.Contact
+4.Address
+5.Username
+6.Password
+
+
+Table for Buyers (Input’s Taken From wholesaler)
+1.Buyers id
+2.Name
+3.Contact
+4.Address
+5.Login Id 
+6.password
