@@ -1,0 +1,34 @@
+Name of tables:
+
+1. Admin
+2. Orders
+3. Products
+
+
+
+
+Table for Admin
+1.Admin-Id
+2.Name
+3.E-mail
+4.Username
+5.Password
+
+
+Table of Orders-
+1.Order Id 
+2.Buyer’s id
+3.Farmer id
+4.Total Amount
+5.Status
+6.Quantity
+
+
+
+Table for products
+1.Product id 
+2.Farmer id
+3.Product Name
+4.Product Description
+5.Expected Price
+6.Quantity
