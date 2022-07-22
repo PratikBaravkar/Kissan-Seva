@@ -1,0 +1,40 @@
+a) Farmers Module:
+- need to Enter When Sign-up FID, First Name, Last Name, Contact, Email, Address, Username, Password, After
+sign-up the information will be stored under  Table database as back-end. This
+information will be used to ensure the quantity of crops cultivated at a
+particular area.
+- He just need to sign-in from the system with his Login-Id and password and whatever
+he sells will be assigned to buyer’s-Id number.
+
+b) Buyers Module:
+- This module is for the wholesaler who is willing to buy food grains and fruits from
+the system in large quantity.
+- This information will be saved in separate Table in database for buyers for
+identification. He can sign-in by clicking Buyers Module sign-in option.
+- Once he enters the system he will be directly able to buy the food grains and fruits
+available in the table or can even directly call the farmer.
+
+c) Admin Module:
+- This module consist of a centralized person who is responsible to maintain all the
+information about the prediction and analysis of the yielded crop in the coming
+future.
+- He has the right to maintain track or delete any user from the system.
+
+System Options For Different Modules -:
+
+Farmers Modules Option -
+this farmers Module consist of ‘login’ and ‘sign-up’ options. The farmers have to sign-up
+by providing their basic information. This information consist of:
+FID, First Name, Last Name, Contact, Email, Address, Username, Password.
+-farmer can add his product which will saved in seprate table in database.
+
+Buyers Module Option- 
+-He can sign-in by clicking Buyers Module sign-in option.This information will be saved in separate database for buyers for
+identification and Sign-out by clicking sign-out Option.
+- Buyers can search and purshes a product and that quantity will be removed from datbase after purchase.
+
+Admin Module Option -
+The basic information about the Admin will be stored that will be:
+First Name, Last Name, Admin-Id, e-mail, User-name and
+password.
+-Admin can control all the Opertions done in System apllication.
