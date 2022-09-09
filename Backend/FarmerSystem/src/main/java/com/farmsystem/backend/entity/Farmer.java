@@ -132,4 +132,8 @@ public class Farmer {
 		this.user_name = user_name;
 	}
 
+	public Farmer()
+	{
+		
+	}
 }
