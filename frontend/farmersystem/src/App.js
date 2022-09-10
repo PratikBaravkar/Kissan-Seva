@@ -7,6 +7,7 @@ import FarmerReg from './Components/FarmerReg';
 import BuyerReg from './Components/BuyerReg';
 import AddProduct from './Components/AddProduct';
 import Home from './Components/Home';
+import BuyerCart from "./Components/BuyerCart";
 
 function App() {
   return (

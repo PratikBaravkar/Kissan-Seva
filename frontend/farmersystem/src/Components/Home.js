@@ -11,6 +11,8 @@ function Home() {
       <Link to="/farmer-reg">Farmer Registration</Link><br/>
       <Link to="/buyer-reg">Buyer Registration</Link><br/>
       <Link to="/add-product">Add Product</Link><br/>
+      <Link to="/buyer-cart">Add to cart</Link><br/>
+      <Link to="/Farmers-Profile">Farmers Profile</Link><br/>
     </div>
   );
 }
