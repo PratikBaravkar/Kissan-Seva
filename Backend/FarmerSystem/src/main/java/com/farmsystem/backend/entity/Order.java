@@ -2,8 +2,6 @@ package com.farmsystem.backend.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -14,7 +12,6 @@ import javax.persistence.Table;
 public class Order {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="oid")
 	private int oid;
 	
@@ -29,7 +26,7 @@ public class Order {
 	private double quantity;
 	
 	@Column(name="total_amount")
-	private double taotal_amount;
+	private double total_amount;
 	
 	@Column(name="status")
 	private String status;
@@ -70,12 +67,12 @@ public class Order {
 		this.quantity = quantity;
 	}
 
-	public double getTaotal_amount() {
-		return taotal_amount;
+	public double getTotal_amount() {
+		return total_amount;
 	}
 
-	public void setTaotal_amount(double taotal_amount) {
-		this.taotal_amount = taotal_amount;
+	public void setTotal_amount(double total_amount) {
+		this.total_amount = total_amount;
 	}
 
 	public String getStatus() {
@@ -98,14 +95,14 @@ public class Order {
 		
 	}
 
-	public Order(int oid, Farmer farmer, String crop_category, double quantity, double taotal_amount, String status,
+	public Order(int oid, Farmer farmer, String crop_category, double quantity, double total_amount, String status,
 			Buyer buyer) {
 		super();
 		this.oid = oid;
 		this.farmer = farmer;
 		this.crop_category = crop_category;
 		this.quantity = quantity;
-		this.taotal_amount = taotal_amount;
+		this.total_amount = total_amount;
 		this.status = status;
 		this.buyer = buyer;
 	}
