@@ -4,6 +4,7 @@ import {
   MDBCard,
   MDBCardBody,
  // MDBCardImage,
+  MDBInput,
   MDBCol,
   MDBContainer,
   MDBIcon,
@@ -34,38 +35,46 @@ export default function BuyerCart() {
                   <MDBCol md="2" className="d-flex justify-content-center">
                     <div>
                       <p className="small text-muted mb-4 pb-2">Name</p>
-                      <p className="lead fw-normal mb-0">tomato</p>
+                      <p className="lead fw-normal mb-0">tomato</p><br/>
+                      <MDBInput wrapperClass='mb-4 w-100' label='Enter Product Name' id='Name' type='text' size="lg"/>
                     </div>
                   </MDBCol>
                   <MDBCol md="2" className="d-flex justify-content-center">
                     <div>
                       <p className="small text-muted mb-4 pb-2">Color</p>
                       <p className="lead fw-normal mb-0">
+                     
                         <MDBIcon
                           fas
                           icon="circle me-2"
                           style={{ color: "#fdd8d2" }}
                         />
-                        red
+                        red  
+                       
                       </p>
+                      <br/>
+                      <MDBInput wrapperClass='mb-4 w-100' label='Colour description' id='color' type='text' size="lg"/>
                     </div>
                   </MDBCol>
                   <MDBCol md="2" className="d-flex justify-content-center">
                     <div>
                       <p className="small text-muted mb-4 pb-2">Quantity</p>
-                      <p className="lead fw-normal mb-0">1</p>
+                      <p className="lead fw-normal mb-0">1</p><br/>
+                      <MDBInput wrapperClass='mb-4 w-100' label='Quantity' id='qty' type='number' size="lg"/>
                     </div>
                   </MDBCol>
                   <MDBCol md="2" className="d-flex justify-content-center">
                     <div>
                       <p className="small text-muted mb-4 pb-2">Price</p>
-                      <p className="lead fw-normal mb-0">Rs40/kg</p>
+                      <p className="lead fw-normal mb-0">Rs40/kg</p><br/>
+                      <MDBInput wrapperClass='mb-4 w-100' label='Expecteted Price' id='Price' type='number' size="lg"/>
                     </div>
                   </MDBCol>
                   <MDBCol md="2" className="d-flex justify-content-center">
                     <div>
                       <p className="small text-muted mb-4 pb-2">Total</p>
-                      <p className="lead fw-normal mb-0">Rs40/kg</p>
+                      <p className="lead fw-normal mb-0">Rs40/kg</p><br/>
+                      <MDBInput wrapperClass='mb-4 w-100' label='Total Price' id=' Total Price' type='number' size="lg"/>
                     </div>
                   </MDBCol>
                 </MDBRow>
