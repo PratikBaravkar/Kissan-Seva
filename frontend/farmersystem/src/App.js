@@ -8,6 +8,7 @@ import BuyerReg from './Components/BuyerReg';
 import AddProduct from './Components/AddProduct';
 import Home from './Components/Home';
 import BuyerCart from "./Components/BuyerCart";
+import BuyerProfile from "./Components/BuyerProfile";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/farmer-reg" element={<FarmerReg/>} />
             <Route path="/buyer-reg" element={<BuyerReg/>} />
             <Route path="/add-product" element={<AddProduct/>} />
+            <Route path="/buyerprofile" element={<BuyerProfile/>} />
           </Routes>
         
       {/* <FarmerLogin></FarmerLogin>

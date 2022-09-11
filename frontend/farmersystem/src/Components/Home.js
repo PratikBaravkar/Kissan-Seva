@@ -13,6 +13,7 @@ function Home() {
       <Link to="/add-product">Add Product</Link><br/>
       <Link to="/buyer-cart">Add to cart</Link><br/>
       <Link to="/Farmers-Profile">Farmers Profile</Link><br/>
+      <Link to="/Buyer-Profile">BuyerProfile</Link><br/>
     </div>
   );
 }
