@@ -9,6 +9,7 @@ import AddProduct from './Components/AddProduct';
 import Home from './Components/Home';
 import BuyerCart from "./Components/BuyerCart";
 import BuyerProfile from "./Components/BuyerProfile";
+import BuyerWelcome from "./Components/BuyerWelcome";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/buyer-reg" element={<BuyerReg/>} />
             <Route path="/add-product" element={<AddProduct/>} />
             <Route path="/buyerprofile" element={<BuyerProfile/>} />
+            <Route path="/BuyerWelcome" element={<BuyerWelcome/>} />
           </Routes>
         
       {/* <FarmerLogin></FarmerLogin>

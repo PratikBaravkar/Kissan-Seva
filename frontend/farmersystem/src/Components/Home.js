@@ -14,6 +14,7 @@ function Home() {
       <Link to="/buyer-cart">Add to cart</Link><br/>
       <Link to="/Farmers-Profile">Farmers Profile</Link><br/>
       <Link to="/buyerprofile">BuyerProfile</Link><br/>
+      <Link to="/BuyerWelcome">BuyerWelcome</Link><br/>
     </div>
   );
 }
