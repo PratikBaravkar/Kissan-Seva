@@ -11,8 +11,7 @@ export default function BuyerProfile() {
               <MDBRow className="g-0">
                 <MDBCol md="4" className="gradient-custom text-center text-white"
                   style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem' }}>
-                  {/* <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                    alt="Avatar" className="my-5" style={{ width: '80px' }} fluid /> */}
+                  
                   <MDBTypography tag="h5">Marie Horwitz</MDBTypography>
                   <MDBCardText>Web Designer</MDBCardText>
                   <MDBIcon far icon="edit mb-5" />
@@ -22,19 +21,23 @@ export default function BuyerProfile() {
                     <MDBTypography tag="h6">Information</MDBTypography>
                     <hr className="mt-0 mb-4" />
                     <MDBRow className="pt-1">
+                    <MDBCol size="6" className="mb-3">
+                        <MDBTypography tag="h6">Buyer Name</MDBTypography>
+                        <MDBCardText className="text-muted">XYZ</MDBCardText>
+                      </MDBCol>
                       <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6">Email</MDBTypography>
                         <MDBCardText className="text-muted">info@example.com</MDBCardText>
                       </MDBCol>
                       <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6">Phone</MDBTypography>
-                        <MDBCardText className="text-muted">123 456 789</MDBCardText>
+                        <MDBCardText className="text-muted">1234567890</MDBCardText>
                       </MDBCol>
                     </MDBRow>
 
                     <MDBTypography tag="h6">Product List</MDBTypography>
                     <hr className="mt-0 mb-4" />
-                    <MDBRow className="pt-1">
+                    {/* <MDBRow className="pt-1">
                       <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6">Availiable Product</MDBTypography>
                         { <MDBCardText className="text-muted">Potato , Tomato, Chillis</MDBCardText> }
@@ -42,10 +45,10 @@ export default function BuyerProfile() {
                       </MDBCol>
                       <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6">trusted Custmers</MDBTypography>
-                        {/* <MDBCardText className="text-muted">1234567</MDBCardText> */}
+                        
                         <MDBInput wrapperClass='mb-4 w-100' label='trusted Custmers to be show ' id='1234567' type='number' size="lg"/>
                       </MDBCol>
-                    </MDBRow>
+                    </MDBRow> */}
 
                     <div className="d-flex justify-content-start">
                       <a href="#!"><MDBIcon fab icon="facebook me-3" size="lg" /></a>

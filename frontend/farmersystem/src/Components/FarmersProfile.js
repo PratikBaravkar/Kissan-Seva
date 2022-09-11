@@ -35,11 +35,11 @@ export default function FarmersProfile() {
                     <MDBTypography tag="h6">Product Details</MDBTypography>
                     <hr className="mt-0 mb-4" />
                     <MDBRow className="pt-1">
-                      <MDBCol size="6" className="mb-3">
+                      {/* <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6">Availiable Product</MDBTypography>
-                        {/* <MDBCardText className="text-muted">Potato , Tomato, Chillis</MDBCardText> */}
+                         <MDBCardText className="text-muted">Potato , Tomato, Chillis</MDBCardText> 
                         <MDBInput wrapperClass='mb-4 w-100' label='Products' id='Product Availablity' type='text' size="lg"/>
-                      </MDBCol>
+                      </MDBCol> */}
                       <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6">trusted Custmers</MDBTypography>
                         {/* <MDBCardText className="text-muted">1234567</MDBCardText> */}
