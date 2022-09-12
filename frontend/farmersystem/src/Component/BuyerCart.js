@@ -147,15 +147,12 @@ function BuyerCart(){
                             
                     )}
                     )
-                    }
-                    
+                    }                   
                 </tbody>
             </table>
             </div>
             </div>
-
-            
-           
+         
             <div className="container d-flex justify-content-center">
                 <div className="row col-8">
                     
