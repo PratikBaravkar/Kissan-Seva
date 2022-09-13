@@ -38,5 +38,9 @@ public interface BuyerRepo extends JpaRepository<Buyer, Integer>
 	@Query( nativeQuery = true,value="update buyers set password=:password  where user_name=:user_name")
 	public void updatePassword(@Param("password") String password,@Param("user_name") String user_name );
 	
+	@Modifying
+	@Transactional
+	@Query( nativeQuery = true,value="update buyers set  address =:address  where user_name=:user_name")
+	public void updateAddress(@Param("address") String address,@Param("user_name") String user_name );
 
 }
