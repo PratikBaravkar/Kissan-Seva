@@ -23,6 +23,20 @@ public interface BuyerRepo extends JpaRepository<Buyer, Integer>
 	@Query( nativeQuery = true,value="update buyers set lastname =:lastname where user_name=:user_name")
 	public void updateLastName(@Param("lastname") String lastname,@Param("user_name") String user_name );
 	
+	@Modifying
+	@Transactional
+	@Query( nativeQuery = true,value="update buyers set  email =:email  where user_name=:user_name")
+	public void updateEmail(@Param("email") String email,@Param("user_name") String user_name );
+	
+	@Modifying
+	@Transactional
+	@Query( nativeQuery = true,value="update buyers set  contact =:contact  where user_name=:user_name")
+	public void updateContact(@Param("contact") String contact,@Param("user_name") String user_name );
+	
+	@Modifying
+	@Transactional
+	@Query( nativeQuery = true,value="update buyers set password=:password  where user_name=:user_name")
+	public void updatePassword(@Param("password") String password,@Param("user_name") String user_name );
 	
 
 }
