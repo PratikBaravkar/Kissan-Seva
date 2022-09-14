@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.farmsystem.backend.entity.Buyer;
 import com.farmsystem.backend.entity.Farmer;
 import com.farmsystem.backend.repository.AdminRepo;
 import com.farmsystem.backend.repository.BuyerRepo;
@@ -40,10 +41,43 @@ public class ProfileController {
 	@PostMapping("farmer/{username}")
 	public String updateFarmerProfile(@PathVariable String username,@RequestBody Farmer farmer)
 	{
-		//farmerRpo.
-		return "updated";
+		if(farmer.getFirstname()!="")
+		{
+			farmerRepo.updateFirstName(farmer.getFirstname(), username);
+		}
 		
+		if(farmer.getLastname()!="")
+		{
+			farmerRepo.updateFirstName(farmer.getLastname(), username);
+		}
+		
+		if(farmer.getContact()!="")
+		{
+			farmerRepo.updateFirstName(farmer.getContact(), username);
+		}
+		
+		if(farmer.getEmail() !="")
+		{
+			farmerRepo.updateFirstName(farmer.getEmail() , username);
+		}
+		
+		if(farmer.getAddress() !="")
+		{
+			farmerRepo.updateFirstName(farmer.getAddress(), username);
+		}
+		
+		return "updated";
 	}
-
+		
+		@PostMapping("buyer/{username}")
+		public String updateBuyerProfile(@PathVariable String username,@RequestBody Buyer buyer)
+		{
+			
+			
+			return "updated";
+		}
 	
+	
+	
+
 }// ProfileController closing

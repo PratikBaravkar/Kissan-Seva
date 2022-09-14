@@ -11,9 +11,7 @@ import com.farmsystem.backend.entity.Admin;
 import com.farmsystem.backend.entity.Buyer;
 import com.farmsystem.backend.entity.Farmer;
 import com.farmsystem.backend.entity.Order;
-
 import com.farmsystem.backend.entity.Product;
-
 import com.farmsystem.backend.repository.AdminRepo;
 import com.farmsystem.backend.repository.BuyerRepo;
 import com.farmsystem.backend.repository.FarmerRepo;
