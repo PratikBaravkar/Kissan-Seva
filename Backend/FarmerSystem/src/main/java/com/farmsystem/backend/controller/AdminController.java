@@ -8,9 +8,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.farmsystem.backend.entity.Admin;
+import com.farmsystem.backend.entity.Buyer;
 import com.farmsystem.backend.entity.Farmer;
+import com.farmsystem.backend.entity.Order;
+import com.farmsystem.backend.entity.Product;
 import com.farmsystem.backend.repository.AdminRepo;
+import com.farmsystem.backend.repository.BuyerRepo;
 import com.farmsystem.backend.repository.FarmerRepo;
+import com.farmsystem.backend.repository.OrderRepo;
 import com.farmsystem.backend.repository.ProductRepo;
 
 
@@ -25,14 +30,21 @@ public class AdminController {
 	ProductRepo productRepo;
 	
 	@Autowired
+	BuyerRepo buyerRepo;
+	
+	@Autowired
+	OrderRepo orderRepo;
+	
+	
+	@Autowired
 	FarmerRepo farmerRepo;
 	
 	@PostMapping("/login")
 	public String loginUser(@RequestBody  Admin admin) {
 		List<Admin> adminList =adminRepo.findAll();
 		
-		String passMsg="";
-		String failMsg="";
+		String passMsg="pass";
+		String failMsg="fail";
 		
 		for(Admin adminobj : adminList)
 		{
@@ -46,6 +58,13 @@ public class AdminController {
 		
 	}
 	
+	@PostMapping("/buyer-list")
+	public List<Buyer> getBuyers()
+	{
+		List<Buyer> buyerList=buyerRepo.findAll();
+		return buyerList;
+	}
+	
 	@PostMapping("/farmer-list")
 	public List<Farmer> getFarmers(){
 		
@@ -53,27 +72,18 @@ public class AdminController {
 		return farmerList;
 	}
 	
-	@PostMapping("/orders")
-	public List<Farmer> getOrders(){
+	@PostMapping("/total-orders")
+	public List<Order> getOrders(){
 		
-		List<Farmer> farmerList=farmerRepo.findAll();
-		return farmerList;
+		List<Order> orderList=orderRepo.findAll();
+		return orderList;
 	}
 	
-	@PostMapping("/Product")
-	public List<Farmer> getProduct(){
-		List<Farmer> farmerList=farmerRepo.findAll();
-		return farmerList;
-		
-		
+	@PostMapping("/products")
+	public List<Product> getProduct(){
+		List<Product> productList=productRepo.findAll();
+		return productList;	
 	}
 	
-
-	 
 	
-	
-	
-	
-
-
 }//Admincontroller  closing
