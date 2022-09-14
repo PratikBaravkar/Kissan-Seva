@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.farmsystem.backend.entity.Admin;
 import com.farmsystem.backend.entity.Farmer;
+import com.farmsystem.backend.entity.Order;
 import com.farmsystem.backend.repository.AdminRepo;
 import com.farmsystem.backend.repository.FarmerRepo;
+import com.farmsystem.backend.repository.OrderRepo;
 import com.farmsystem.backend.repository.ProductRepo;
 
 
@@ -27,12 +29,15 @@ public class AdminController {
 	@Autowired
 	FarmerRepo farmerRepo;
 	
+	@Autowired
+	private OrderRepo orderepo;
+	
 	@PostMapping("/login")
 	public String loginUser(@RequestBody  Admin admin) {
 		List<Admin> adminList =adminRepo.findAll();
 		
-		String passMsg="";
-		String failMsg="";
+		String passMsg="pass";
+		String failMsg="fail";
 		
 		for(Admin adminobj : adminList)
 		{
@@ -54,9 +59,9 @@ public class AdminController {
 	}
 	
 	@PostMapping("/orders")
-	public List<Farmer> getOrders(){
+	public List<Order> getOrders(){
 		
-		List<Farmer> farmerList=farmerRepo.findAll();
+		List<Order> farmerList=orderepo.findAll();
 		return farmerList;
 	}
 	
