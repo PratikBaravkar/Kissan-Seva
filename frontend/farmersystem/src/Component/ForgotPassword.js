@@ -10,7 +10,7 @@ function ForgotPassword() {
         e.preventDefault();
         var name = e.target.name;
         var value = e.target.value;
-        consloe.log("On handleChange clicked");
+        console.log("handleChange is clicked")
 
         setInfo({ ...info, [name]: value },)
     };
