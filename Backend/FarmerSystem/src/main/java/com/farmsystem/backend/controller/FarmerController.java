@@ -3,6 +3,7 @@ package com.farmsystem.backend.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.farmsystem.backend.entity.Farmer;
+import com.farmsystem.backend.entity.Product;
 import com.farmsystem.backend.repository.AdminRepo;
 import com.farmsystem.backend.repository.BuyerCartRepo;
 import com.farmsystem.backend.repository.BuyerRepo;
@@ -33,8 +34,8 @@ public class FarmerController {
 	
 	public String regFarmer(Farmer farmer)
 	{
-		//new farmer register
-		return null;		
+		farmerRepo.save(farmer);
+		return "register_success";
 	}
 	
 	public String loginUser()
@@ -44,11 +45,23 @@ public class FarmerController {
 		
 	}
 	
+	public String forgotPassword()
+	{
+		//for registering new password for existing username
+		return null;
+		
+	}
+	
+	public String getProduct(Product product)
+	{
+		return null;
+		
+	}
+	
 	public String getDetails()
 	{
 		//order details
-		return null;
-		
+		return null;		
 	}
 	
 }
