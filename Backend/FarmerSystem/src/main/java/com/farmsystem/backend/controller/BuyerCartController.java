@@ -29,5 +29,12 @@ public class BuyerCartController
 		return "added _successfully";
 	}
 	
+	@PostMapping("/remove")
+	public String removeItem(@RequestBody BuyerCart cart)
+	{
+		buyercartRepo.deleteById(cart.getCartid());
+		return "deleted_successfully";
+	}
+	
 
 }
