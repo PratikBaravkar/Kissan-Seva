@@ -53,8 +53,23 @@ public class AdminController {
 		return farmerList;
 	}
 	
-
+	@PostMapping("/orders")
+	public List<Farmer> getOrders(){
+		
+		List<Farmer> farmerList=farmerRepo.findAll();
+		return farmerList;
+	}
 	
+	@PostMapping("/Product")
+	public List<Farmer> getProduct(){
+		List<Farmer> farmerList=farmerRepo.findAll();
+		return farmerList;
+		
+		
+	}
+	
+
+	 
 	
 	
 	
