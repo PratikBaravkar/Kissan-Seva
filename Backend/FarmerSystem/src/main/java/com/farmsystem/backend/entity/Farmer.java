@@ -133,4 +133,14 @@ public class Farmer {
 	{
 		
 	}
+
+
+	@Override
+	public String toString() {
+		return "Farmer [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", contact=" + contact
+				+ ", email=" + email + ", password=" + password + ", address=" + address + ", user_name=" + user_name
+				+ "]";
+	}
+	
+	
 }
