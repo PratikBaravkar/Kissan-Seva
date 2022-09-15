@@ -3,6 +3,7 @@ package com.farmsystem.backend.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -61,14 +62,14 @@ public class AdminController {
 		
 	}
 	
-	@PostMapping("/buyer-list")
+	@GetMapping("/buyer-list")
 	public List<Buyer> getBuyers()
 	{
 		List<Buyer> buyerList=buyerRepo.findAll();
 		return buyerList;
 	}
 	
-	@PostMapping("/farmer-list")
+	@GetMapping("/farmer-list")
 	public List<Farmer> getFarmers(){
 		
 		List<Farmer> farmerList=farmerRepo.findAll();
@@ -76,7 +77,7 @@ public class AdminController {
 	}
 	
 
-	@PostMapping("/total-orders")
+	@GetMapping("/total-orders")
 	public List<Order> getOrders(){
 		
 		List<Order> orderList=orderRepo.findAll();
@@ -86,7 +87,7 @@ public class AdminController {
 
 	}
 	
-	@PostMapping("/products")
+	@GetMapping("/products")
 	public List<Product> getProduct(){
 		List<Product> productList=productRepo.findAll();
 		return productList;	
