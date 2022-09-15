@@ -2,6 +2,8 @@ package com.farmsystem.backend.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,6 +13,7 @@ public class Buyer
 {
 	@Id
 	@Column(name="bid")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int bid ;
 	
 	@Column(name="firstname")

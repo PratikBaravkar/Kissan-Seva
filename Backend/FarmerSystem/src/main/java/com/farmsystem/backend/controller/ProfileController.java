@@ -38,36 +38,36 @@ public class ProfileController {
 	FarmerRepo farmerRepo;
 	
 	
-	@PostMapping("farmer/{username}")
-	public String updateFarmerProfile(@PathVariable String username,@RequestBody Farmer farmer)
-	{
-		if(farmer.getFirstname()!="")
-		{
-			farmerRepo.updateFirstName(farmer.getFirstname(), username);
-		}
-		
-		if(farmer.getLastname()!="")
-		{
-			farmerRepo.updateFirstName(farmer.getLastname(), username);
-		}
-		
-		if(farmer.getContact()!="")
-		{
-			farmerRepo.updateFirstName(farmer.getContact(), username);
-		}
-		
-		if(farmer.getEmail() !="")
-		{
-			farmerRepo.updateFirstName(farmer.getEmail() , username);
-		}
-		
-		if(farmer.getAddress() !="")
-		{
-			farmerRepo.updateFirstName(farmer.getAddress(), username);
-		}
-		
-		return "updated";
-	}
+//	@PostMapping("farmer/{username}")
+//	public String updateFarmerProfile(@PathVariable String username,@RequestBody Farmer farmer)
+//	{
+//		if(farmer.getFirstname()!="")
+//		{
+//			farmerRepo.updateFirstName(farmer.getFirstname(), username);
+//		}
+//		
+//		if(farmer.getLastname()!="")
+//		{
+//			farmerRepo.updateFirstName(farmer.getLastname(), username);
+//		}
+//		
+//		if(farmer.getContact()!="")
+//		{
+//			farmerRepo.updateFirstName(farmer.getContact(), username);
+//		}
+//		
+//		if(farmer.getEmail() !="")
+//		{
+//			farmerRepo.updateFirstName(farmer.getEmail() , username);
+//		}
+//		
+//		if(farmer.getAddress() !="")
+//		{
+//			farmerRepo.updateFirstName(farmer.getAddress(), username);
+//		}
+//		
+//		return "updated";
+//	}
 		
 		@PostMapping("buyer/{username}")
 		public String updateBuyerProfile(@PathVariable String username,@RequestBody Buyer buyer)

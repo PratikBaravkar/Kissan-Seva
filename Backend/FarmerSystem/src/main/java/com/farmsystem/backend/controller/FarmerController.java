@@ -67,7 +67,7 @@ public class FarmerController {
 		String username = farmer.getUser_name();
 		String newpassword = farmer.getPassword();
 		
-		farmerRepo.updatePassword(newpassword,username);
+//		farmerRepo.updatePassword(newpassword,username);
 		return "updated";
 		
 	}

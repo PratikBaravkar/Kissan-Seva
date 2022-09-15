@@ -2,15 +2,18 @@ package com.farmsystem.backend.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name="farmers")
 public class Farmer {
 	
 	@Id
 	@Column(name="fid")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	
 	@Column(name="firstname")
