@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.farmsystem.backend.entity.Buyer;
+import com.farmsystem.backend.entity.BuyerCart;
 import com.farmsystem.backend.entity.Product;
 import com.farmsystem.backend.repository.BuyerCartRepo;
 import com.farmsystem.backend.repository.BuyerRepo;
@@ -78,6 +79,15 @@ public class BuyerController
 	{
 		List<Product>productList = productRepo.findAll();
 		return productList;
+	}
+	
+	@PostMapping("/myCart")
+	public List<BuyerCart> buyerCart() 
+	{
+	        
+		List<BuyerCart> cartlist = buyercartRepo.findAll();              
+		
+		return cartlist;
 	}
 	
 	
