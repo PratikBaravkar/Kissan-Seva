@@ -147,12 +147,17 @@ function BuyerCart(){
                             
                     )}
                     )
-                    }                   
+                    }
+                    
                 </tbody>
             </table>
             </div>
             </div>
-         
+
+            <div className="d-flex justify-content-center">
+                <button type="button" className="btn btn-danger mt-3 mb-3" >Confirmed Orders</button>
+            </div>
+           
             <div className="container d-flex justify-content-center">
                 <div className="row col-8">
                     
