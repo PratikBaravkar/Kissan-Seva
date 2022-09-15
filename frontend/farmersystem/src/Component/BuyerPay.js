@@ -35,7 +35,7 @@ function BuyerPay() {
 
                                     <div className="d-flex"> <input className="form-control zip" type="text" placeholder="Pin" required/> <input className="form-control state" type="text" placeholder="State" required/> </div>
 
-                                   
+                                    <div className="d-flex flex-column dis">
 
 
                                         <div className="d-flex align-items-center justify-content-between mb-2">
