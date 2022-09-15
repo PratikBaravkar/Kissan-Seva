@@ -118,81 +118,188 @@ function BuyerProfile()
     
     }, []);
     return(
-        <div className="container d-flex justify-content-center fw-bold ">
-            <div className="row col-8 ">
-            <span class="border border-warning">
+        <div class="container my-4 ">
 
-                <table >
-                    <tr><td style={{columnSpan:"2"}}>Personal Info</td></tr>
-                    <tr>
-                        <td >First Name :</td>
-                        <td>{personalInfo.firstname}</td>
-                        {! firstnameflag && <td><button type="button" name="firstname"  class="btn btn-link" onClick={handleFlag}>change</button></td>}
-                        {firstnameflag && <td><input type="text" class="form-control" name="firstname"  placeholder="Enter New First Name"  
+        <hr/>
+
+        <div class="row">
+
+       
+      
+   
+            <div class="col-lg-12 col-md-6 mb-4">
+
+                <div class="card bg-secondary">
+                    <div class="card-header">
+                        <center> <b> Personal Info </b> </center>
+                    </div>
+
+                    <div className='row '>
+                        <div className='col-12'>
+                        <div className='container-fluid d-flex justify-content-evenly '>
+ 
+                        <div className='row col-3'>
+    <div class="card " style={{ width: "12rem", height: "40vh", marginTop: "10vh", marginBottom: "10vh" ,backgroundColor:"black" ,color: "white" }}>
+    
+    <center><img src="https://cdn-icons.flaticon.com/png/512/522/premium/522267.png?token=exp=1649750381~hmac=64494e535aefc21edbb896166a94e5b8" class="card-img-top" alt="..." style={{ width: "100px", height: "100px" , marginTop: "5vh" }} /></center>
+    <div class="card-body">
+        <center><b><h5 class="card-title">{personalInfo.firstname}</h5></b></center>
+        <center><p class="card-text">Buyer</p></center>
+        <center><a href="#" class="btn btn-primary"  style={{ marginTop: "vh" }}>Info</a></center>
+    </div>
+    </div>
+    </div>
+    
+    </div>
+                        <center> 
+      
+                        <div class="card-body d-flex justify-content-center col-8">
+                        <h5 class="card-title"></h5>
+                        <div class="card-text col-12">
+                            <div class="col-md-12">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0 mt-3">First Name :</h6>
+                                        </div>
+                                        <div class="col-sm-3 mt-3 text-secondary">
+                                            {personalInfo.firstname}
+                                        </div>
+
+                                        <div class="col-sm-6 mt-2 text-secondary">
+                                        {! firstnameflag && <button type="button" name="firstname"  class="btn btn-link" onClick={handleFlag}>change</button>}
+                                        {firstnameflag && <input type="text" class="form-control" name="firstname"  placeholder="Enter New First Name"  
                         value={changeInfo.firstname}
-                        onChange={handleChange}/></td>}
-                    </tr>
-                    <tr>
-                        <td >Last Name :</td>
-                        <td>{personalInfo.lastname}</td>
-                        {! lastnameflag && <td><button type="button" name="lastname" class="btn btn-link" onClick={handleFlag}>change</button></td>}
-                        {lastnameflag && <td><input type="text" name="lastname" class="form-control"  placeholder="Enter New Last Name" 
+                        onChange={handleChange}/>}
+                                        </div>
+                                        
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0 mt-3">Last Name :</h6>
+                                        </div>
+                                        <div class="col-sm-3 mt-3 text-secondary">
+                                            {personalInfo.lastname}
+                                        </div>
+
+                                        <div class="col-sm-6 mt-2 text-secondary">
+                                        {! lastnameflag && <button type="button" name="lastname"  class="btn btn-link" onClick={handleFlag}>change</button>}
+                                        {lastnameflag && <input type="text" class="form-control" name="lastname"  placeholder="Enter New Last Name"  
                         value={changeInfo.lastname}
-                        onChange={handleChange}/></td>}
-                    </tr>
-                    <tr>
-                        <td>Contact No:</td>
-                        <td>{personalInfo.contact}</td>
-                        {! contactflag && <td><button type="button" name="contact" class="btn btn-link" onClick={handleFlag}>change</button></td>}
-                        {contactflag && <td><input type="text" name="contact" class="form-control"  placeholder="Enter New ContactNo"
+                        onChange={handleChange}/>}
+                                        </div>
+                                        
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0 mt-3">Contact No: :</h6>
+                                        </div>
+                                        <div class="col-sm-3 mt-3 text-secondary">
+                                        {personalInfo.contact}
+                                        </div>
+
+                                        <div class="col-sm-6 mt-2 text-secondary">
+                                        {! contactflag && <button type="button" name="contact" class="btn btn-link" onClick={handleFlag}>change</button>}
+                        {contactflag && <input type="text" name="contact" class="form-control"  placeholder="Enter New ContactNo"
                          value={changeInfo.contact}
-                        onChange={handleChange}/></td>}
-                    </tr>
-                    <tr>
-                        <td>Email :</td>
-                        <td>{personalInfo.email}</td>
-                        {! emailflag && <td><button type="button" name="email" class="btn btn-link" onClick={handleFlag}>change</button></td>}
-                        {emailflag && <td><input type="text" name="email" class="form-control"  placeholder="Enter New Email" 
+                        onChange={handleChange}/>}
+                                        </div>
+                                        
+                                    </div>
+                                    <hr/>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0 mt-3">Email :</h6>
+                                        </div>
+                                        <div class="col-sm-3 mt-3 text-secondary">
+                                            {personalInfo.email}
+                                        </div>
+
+                                        <div class="col-sm-6 mt-2 text-secondary">
+                                        {! emailflag && <button type="button" name="email"  class="btn btn-link" onClick={handleFlag}>change</button>}
+                                        {emailflag && <input type="text" class="form-control" name="email"  placeholder="Enter New Email"  
                         value={changeInfo.email}
-                        onChange={handleChange}/></td>}
-                    </tr>
-                    <tr>
-                        <td>Address :</td>
-                        <td>{personalInfo.address}</td>
-                        {! addressflag && <td><button type="button" name="address" class="btn btn-link" onClick={handleFlag}>change</button></td>}
-                        {addressflag && <td><input type="text" name="address" class="form-control"  placeholder="Enter New Address" 
+                        onChange={handleChange}/>}
+                                        </div>
+                                        
+                                    </div>
+                                    <hr/>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0 mt-3">Address :</h6>
+                                        </div>
+                                        <div class="col-sm-3 mt-3 text-secondary">
+                                            {personalInfo.address}
+                                        </div>
+
+                                        <div class="col-sm-6 mt-2 text-secondary">
+                                        {! addressflag && <button type="button" name="address"  class="btn btn-link" onClick={handleFlag}>change</button>}
+                                        {addressflag && <input type="text" class="form-control" name="address"  placeholder="Enter New Address"  
                         value={changeInfo.address}
-                        onChange={handleChange}/></td>}
-                    </tr>
-                    <tr>
-                        <td>User Name :</td>
-                        <td>{personalInfo.user_name}</td>
-                        {! usernameflag && <td><button type="button" name="username" class="btn btn-link" onClick={handleFlag}>change</button></td>}
-                        {usernameflag && <td><input type="text" name="username" class="form-control"  placeholder="Enter New User Name" 
-                        value={changeInfo.username}
-                        onChange={handleChange}/></td>}
-                    </tr>
+                        onChange={handleChange}/>}
+                                        </div>
+                                        
+                                    </div>
+                                    <hr/>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0 mt-3">User Name :</h6>
+                                        </div>
+                                        <div class="col-sm-3 mt-3 text-secondary">
+                                            {personalInfo.user_name}
+                                        </div>
 
-                    <tr>
-                        
-                        {! passwordflag && <td><button type="button" name="password" class="btn btn-link" onClick={handleFlag}>change password</button></td>}
-                        {passwordflag && <td><input type="text" name="password" class="form-control"  placeholder="Enter New password" 
+                                        <div class="col-sm-6 mt-2 text-secondary">
+                                        {! usernameflag  && <button type="button" name="username"  class="btn btn-link" onClick={handleFlag}>change</button>}
+                                        {usernameflag  && <input type="text" class="form-control" name="firstname"  placeholder="Enter New User Name"  
+                        value={changeInfo.user_name}
+                        onChange={handleChange}/>}
+                                        </div>
+                                        
+                                    </div>
+                                    <hr/>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <center>{! passwordflag && <button type="button" name="password" class="btn btn-link" onClick={handleFlag}>change password</button>}
+                        {passwordflag && <input type="text" name="password" class="form-control"  placeholder="Enter New password" 
                         value={changeInfo.password}
-                        onChange={handleChange}/></td>}
-                    </tr> 
-                    {
+                        onChange={handleChange}/>}
+                        </center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                             
+                            {
                         (firstnameflag || lastnameflag ||emailflag ||addressflag ||passwordflag ||contactflag ||usernameflag) &&
+                                
+                                <center className="d-flex justify-content-evenly">
+                                <button type="button" class="btn btn-success" onClick={changeProfile}>Save</button>
+                                <button type="button" class="btn btn-danger" onClick={handleCancel}>Cancel</button>
+                                </center>
+                            }
+                           
+                        </div>
+                    </div>
+                        </center>
+                        </div>
 
-                        <tr><td style={{columnSpan:"4"}}><center><button type="button" class="btn btn-success" onClick={changeProfile}>Save</button></center></td>
-                    
+                    </div>
+
+
                     
 
-                        <td style={{columnSpan:"4"}}><center><button type="button" class="btn btn-danger" onClick={handleCancel}>Cancel</button></center></td></tr>
-                    }
-                    
-                </table>
-            </span>
+                </div>
+
+
             </div>
+
+
+        </div>
         </div>
     )
 }
