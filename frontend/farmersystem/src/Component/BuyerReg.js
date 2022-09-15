@@ -333,7 +333,10 @@ return (
                             onChange={handleChange}
                             onBlur={passwordValidation}
                           />
-                       
+                        </div>
+                        <div>
+                        <span className="text-danger">{passwordErr}</span>
+                        </div>
                         
                       </div>
 
