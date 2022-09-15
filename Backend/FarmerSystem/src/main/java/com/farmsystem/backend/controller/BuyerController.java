@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.farmsystem.backend.entity.Buyer;
+import com.farmsystem.backend.entity.Product;
 import com.farmsystem.backend.repository.BuyerCartRepo;
 import com.farmsystem.backend.repository.BuyerRepo;
 import com.farmsystem.backend.repository.FarmerRepo;
@@ -61,6 +62,26 @@ public class BuyerController
 		buyerRepo.save(buyer);
 		return "register_success";
 	}
+	
+	
+	@PostMapping("/search")
+	public List<Product>searchProduct(@RequestBody Product prod)
+	{
+		String item = prod.getCrop();
+		List<Product>productList = productRepo.findProduct(item);
+		
+		return productList;
+	}
+	
+	@PostMapping("/allsearch")
+	public List<Product>searchProduct()
+	{
+		List<Product>productList = productRepo.findAll();
+		return productList;
+	}
+	
+	
+	
 
 	
 
