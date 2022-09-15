@@ -13,7 +13,7 @@ public class Buyer
 {
 	@Id
 	@Column(name="bid")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int bid ;
 	
 	@Column(name="firstname")

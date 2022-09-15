@@ -13,7 +13,7 @@ public class Farmer {
 	
 	@Id
 	@Column(name="fid")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
 	@Column(name="firstname")

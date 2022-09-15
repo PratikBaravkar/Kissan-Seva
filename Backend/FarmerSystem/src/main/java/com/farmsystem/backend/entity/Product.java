@@ -15,7 +15,7 @@ public class Product {
 
 	@Id
 	@Column(name="pid")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int pid;
 	
 	@ManyToOne

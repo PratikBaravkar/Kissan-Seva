@@ -15,7 +15,7 @@ public class Order {
 	
 	@Id
 	@Column(name="oid")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int oid;
 	
 	@ManyToOne

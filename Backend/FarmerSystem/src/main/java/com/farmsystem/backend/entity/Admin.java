@@ -13,7 +13,7 @@ public class Admin {
 	
 	@Id
 	@Column(name="aid")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int aid;
 	
 	@Column(name="firstname")

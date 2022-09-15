@@ -13,7 +13,7 @@ public class BuyerCart
 {
 	@Id
 	@Column(name="cartid")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int cartid;
 	
 	@Column(name="buyerusername")
