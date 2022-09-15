@@ -5,6 +5,22 @@ import axios from 'axios';
 function FarmersList() {
   const [farmerlist, setFarmerlist] = useState([]);
 
+  useEffect(() => {
+    axios
+      .post("http://localhost:9099/admin/farmer-list", {
+
+      })
+      .then((response) => {
+
+        setFarmerlist(response.data);
+
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+  }, []);
+  console.log(farmerlist);
+
   return (
     <div className='container-fluid d-flex justify-content-evenly '>
     {farmerlist.map((item)=>{

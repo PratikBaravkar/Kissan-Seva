@@ -5,6 +5,22 @@ function BuyersList() {
 
   const [buyerlist, setBuyerlist] = useState([]);
 
+  useEffect(() => {
+    axios
+      .post("http://localhost:9099/admin/buyer-list", {
+        
+      })
+      .then((response) => {
+
+        setBuyerlist(response.data);
+
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+  }, []);
+  console.log(buyerlist);
+
   return (
     <div className='container-fluid d-flex justify-content-evenly '>
     {buyerlist.map((item)=>{

@@ -6,9 +6,51 @@ function BuyerPersonalDetails(props) {
     const [personalInfo, setPersonalInfo] = useState([])
     const history = useHistory();
     const { username } = useParams();
+    const url = "http://localhost:9099/buyer/profile/" + username;
+    useEffect(() => {
+        axios
+            .get(url, {})
+            .then((response) => {
+
+                console.log(response.data);
+                setPersonalInfo(response.data);
+
+            })
+            .catch((error) => {
+                console.log(error.response);
+            });
+
+
+    }, []);
+
+    function handleBuyer(){
+        
+            const removeurl = "http://localhost:9099/buyer/remove/" + username;
+            axios
+                .get(removeurl, {})
+                .then((response) => {
+    
+                    console.log(response.data);
+                    if(response.data === "updated")
+                    {
+                       
+                        window.location = `/admin-welcome/${ sessionStorage.getItem("authenticatedUser")}`;
+                        alert("Removed Successfully");
+                    }
+                    if(response.data === "fails")
+                    {
+                        alert("Can't Suspend ,Buyer has orders in process");
+                    }
+                    
+                })
+                .catch((error) => {
+                    console.log(error.response);
+                });
     
     
-    
+        
+        
+    }
     return (
         <div class="container my-4 ">
 

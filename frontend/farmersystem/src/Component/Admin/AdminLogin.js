@@ -26,6 +26,41 @@ function AdminLogin()
       setLogin({ ...login, [name]: value, });
     };
 
+    var onSubmit = (e)=>{
+        e.preventDefault();
+
+        axios
+    .post("http://localhost:9099/admin/login", {
+      password: login.password,
+      user_name: login.user_name,
+    })
+    .then((response) => {
+      console.log(response.data);
+
+      if(response.data === "pass")
+      {
+
+        AuthenticateService.AdminLogin(login.user_name);
+
+        console.log(login.user_name);
+        setLogin({user_name: '', password: '' });
+       
+        window.location = `/admin-welcome/${login.user_name}`;
+        
+      }
+      else{
+        console.log(login.user_name);
+       // sethasLoginFailed(true);
+       setLogin({user_name: '', password: '' });
+        alert("Invalid Password/Username");
+
+      }
+
+    })
+    .catch((error) => {
+      console.log(error.response);
+    });
+    }
 
     return(
         <div>

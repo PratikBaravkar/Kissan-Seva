@@ -6,9 +6,47 @@ function FarmerPersonalDetails(props) {
     const [personalInfo, setPersonalInfo] = useState([])
     const history = useHistory();
     const { username } = useParams();
-    
+    const url = "http://localhost:9099/farmer/profile/" + username;
+    useEffect(() => {
+        axios
+            .get(url, {})
+            .then((response) => {
 
-   
+                console.log(response.data);
+                setPersonalInfo(response.data);
+
+            })
+            .catch((error) => {
+                console.log(error.response);
+            });
+
+
+    }, []);
+
+    function handleFarmer(){
+        
+            const removeurl = "http://localhost:9099/farmer/remove/" + username;
+            axios
+                .get(removeurl, {})
+                .then((response) => {
+    
+                    console.log(response.data);
+                    if(response.data === "updated")
+                    {
+                       
+                        window.location = `/admin-welcome/${ sessionStorage.getItem("authenticatedUser")}`;
+                        alert("Removed Successfully");
+                    }
+                    
+                })
+                .catch((error) => {
+                    console.log(error.response);
+                });
+    
+    
+        
+        
+    }
     return (
         <div class="container my-4 ">
 
