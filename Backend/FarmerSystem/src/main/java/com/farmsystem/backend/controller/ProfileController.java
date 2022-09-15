@@ -72,6 +72,30 @@ public class ProfileController {
 		@PostMapping("buyer/{username}")
 		public String updateBuyerProfile(@PathVariable String username,@RequestBody Buyer buyer)
 		{
+			System.out.println(username);
+			
+			System.out.println(buyer.getAddress());
+			if(buyer.getFirstname()!= "")
+			{
+				buyerRepo.updateFirstName(buyer.getFirstname(),username);
+			}
+			if(buyer.getLastname()!= "")
+			{
+				buyerRepo.updateLastName(buyer.getLastname(), username);
+			}
+			if(buyer.getContact()!="")
+			{
+				buyerRepo.updateContact(buyer.getContact(), username);
+			}
+			if(buyer.getEmail()!= "")
+			{
+				buyerRepo.updateEmail(buyer.getEmail(), username);
+			}
+			if(buyer.getAddress()!= "")
+			{
+				buyerRepo.updateAddress(buyer.getAddress(), username);
+			}
+			
 			
 			
 			return "updated";
@@ -80,4 +104,4 @@ public class ProfileController {
 	
 	
 
-}// ProfileController closing
+}// Profile Controller closing
