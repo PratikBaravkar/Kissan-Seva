@@ -54,6 +54,13 @@ public class BuyerController
 		return failMsg;
 		
 	}
+	
+	@PostMapping("/Registration")
+	public String regFarmer(@RequestBody Buyer buyer)
+	{
+		buyerRepo.save(buyer);
+		return "register_success";
+	}
 
 	
 
