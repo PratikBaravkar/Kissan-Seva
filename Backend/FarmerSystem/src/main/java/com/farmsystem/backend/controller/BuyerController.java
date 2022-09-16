@@ -4,12 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-import org.springframework.web.bind.annotation.CrossOrigin;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,8 +21,6 @@ import com.farmsystem.backend.repository.FarmerRepo;
 import com.farmsystem.backend.repository.OrderRepo;
 import com.farmsystem.backend.repository.ProductRepo;
 
-
-@CrossOrigin("*")
 @RestController
 @RequestMapping("/buyer")
 public class BuyerController 
@@ -115,25 +109,25 @@ public class BuyerController
 		
 	}
 	
-//	@PostMapping("/addOrder")
-//	public String regFarmer(@RequestBody Order order) {
-//			
-//		String buyeruname = order.getBuyer().getUser_name();
-//		
-//		System.out.println(buyeruname);
-//		int bid = buyerRepo.findByName(buyeruname);
-//			order.getBuyer().setBid(bid);
-//			
-//			String farmername = order.getFarmer().getFirstname();
-//			System.out.println(farmername);
-//			int fid = farmerRepo.findByFid(farmername);
-//			order.getFarmer().setFid(fid);
-//		    orderRepo.save(order);
-//		     
-//		    return "added";
-//		    
-//	}
-//	
+	@PostMapping("/addOrder")
+	public String regFarmer(@RequestBody Order order) {
+			
+		String buyeruname = order.getBuyer().getUser_name();
+		
+		System.out.println(buyeruname);
+		int bid = buyerRepo.findByName(buyeruname);
+			order.getBuyer().setBid(bid);
+			
+			String farmername = order.getFarmer().getFirstname();
+			System.out.println(farmername);
+			int fid = farmerRepo.findByFid(farmername);
+			order.getFarmer().setFid(fid);
+		    orderRepo.save(order);
+		     
+		    return "added";
+		    
+	}
+	
 	@GetMapping("/profile/{username}")
 	public Optional<Buyer> getBuyer(@PathVariable String username) 
 	{
@@ -162,6 +156,5 @@ public class BuyerController
 	
 
 	
-
 
 }

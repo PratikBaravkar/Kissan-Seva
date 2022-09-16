@@ -14,7 +14,7 @@ public class Farmer {
 	@Id
 	@Column(name="fid")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int fid;
 	
 	@Column(name="firstname")
 	private String firstname;
@@ -38,13 +38,13 @@ public class Farmer {
 	private String user_name;
 	
 	
-	public int getId() {
-		return id;
+	public int getFid() {
+		return fid;
 	}
 
 
-	public void setId(int id) {
-		this.id = id;
+	public void setFid(int id) {
+		this.fid = id;
 	}
 
 
@@ -122,7 +122,7 @@ public class Farmer {
 	public Farmer(int id, String firstname, String lastname, String contact, String email, String password,
 			String address, String user_name) {
 		super();
-		this.id = id;
+		this.fid = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.contact = contact;
@@ -140,7 +140,7 @@ public class Farmer {
 
 	@Override
 	public String toString() {
-		return "Farmer [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", contact=" + contact
+		return "Farmer [id=" + fid + ", firstname=" + firstname + ", lastname=" + lastname + ", contact=" + contact
 				+ ", email=" + email + ", password=" + password + ", address=" + address + ", user_name=" + user_name
 				+ "]";
 	}

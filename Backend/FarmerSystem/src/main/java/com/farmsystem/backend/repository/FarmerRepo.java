@@ -17,7 +17,7 @@ public interface FarmerRepo extends JpaRepository<Farmer, Integer> {
 	
 	
 	@Query(nativeQuery = true,value="select fid from farmers where firstname=:name")
-	public int findById(@Param("name") String name);
+	public int findByFid(@Param("name") String name);
 	
 	@Modifying
 	@Transactional
