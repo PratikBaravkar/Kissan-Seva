@@ -113,7 +113,7 @@ public class BuyerController {
 		return cartlist;
 	}
 	
-	//http://localhost:9099/buyer/confirmed-orders
+	
 		
 		@PostMapping("/confirmed-orders")
 	public List<Order> buyerCart(@RequestBody Buyer buyer) {

@@ -212,6 +212,7 @@ return (
                             value={regestration.firstname}
                             onChange={handleChange}
                             onBlur={firstNameValidation}
+                            style={{backgroundColor:"white"}}
                           />
                         </div>
                         <div>
@@ -232,6 +233,7 @@ return (
                             value={regestration.lastname}
                             onChange={handleChange}
                             onBlur={lastNameValidation}
+                            style={{backgroundColor:"white"}}
                           />
                         </div>
                         <div>
@@ -252,6 +254,7 @@ return (
                             value={regestration.email}
                             onChange={handleChange}
                             onBlur={emailValidation}
+                            style={{backgroundColor:"white"}}
                           />
                         </div>
                         <div>
@@ -272,6 +275,7 @@ return (
                             value={regestration.contact}
                             onChange={handleChange}
                             onBlur={contactNoValidation}
+                            style={{backgroundColor:"white"}}
                           />
                         </div>
                         <div>
@@ -290,6 +294,7 @@ return (
                             value={regestration.address}
                             onChange={handleChange}
                             onBlur={addressValidation}
+                            style={{backgroundColor:"white"}}
                           />
                         </div>
                         <div>
@@ -312,6 +317,7 @@ return (
                             value={regestration.user_name}
                             onChange={handleChange}
                             onBlur={userNameValidation}
+                            style={{backgroundColor:"white"}}
                           />
                         </div>
                         <div>
@@ -332,6 +338,7 @@ return (
                             value={regestration.password}
                             onChange={handleChange}
                             onBlur={passwordValidation}
+                            style={{backgroundColor:"white"}}
                           />
                         </div>
                         <div>

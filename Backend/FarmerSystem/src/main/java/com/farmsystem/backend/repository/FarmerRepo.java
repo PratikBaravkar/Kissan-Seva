@@ -1,8 +1,6 @@
 package com.farmsystem.backend.repository;
 
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -17,12 +15,8 @@ public interface FarmerRepo  extends JpaRepository<Farmer, Integer>
 {
 	
 
-//	@Modifying
-//	@Query(name="changePassword",nativeQuery=true,value="update table_emp set password=:pwd where username=:uname")
-//	@Transactional
-//	public void changePassword(@Param("uname") String userName,@Param("pwd") String password);
 	@Query( nativeQuery = true,value="select fid from farmers where user_name=:user_name")
-	public int findByName(@Param("user_name") String user_name);
+	public int findByUser_name(@Param("user_name") String user_name);
 	
 	@Query( nativeQuery = true,value="select fid from farmers where firstname=:name")
 	public int findByFid(@Param("name") String name);

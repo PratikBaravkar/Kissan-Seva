@@ -41,7 +41,7 @@ public class FarmerController
 	public String removeFarmer(@PathVariable String username) {
 
 		
-		int fid = farmerRepo.findByName(username);
+		int fid = farmerRepo.findByUser_name(username);
 			          
 		 farmerRepo.deleteById(fid);
 		 
@@ -53,7 +53,7 @@ public class FarmerController
 	public Optional<Farmer> getFarmer(@PathVariable String username) {
 
 		
-		int fid = farmerRepo.findByName(username);
+		int fid = farmerRepo.findByUser_name(username);
 			          
 		return farmerRepo.findById(fid);
 		    
@@ -74,10 +74,7 @@ public class FarmerController
 	public String regFarmer(@RequestBody Farmer farmer) {
 
 		System.out.println(farmer.toString());
-//		    BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();	
-//		    String encodedPassword = passwordEncoder.encode(user.getPassword());
-//		    user.setPassword(encodedPassword);
-		     
+
 		    farmerRepo.save(farmer);
 		    
 		   
@@ -116,7 +113,7 @@ public class FarmerController
 	{
 		String uname = farmer.getUser_name();
 		
-		int fid = farmerRepo.findByName(uname);
+		int fid = farmerRepo.findByUser_name(uname);
 		
 		List<Order> orderList = orderRepo.findById(fid);  
 		
@@ -124,13 +121,12 @@ public class FarmerController
 		
 	}
 	
-	//http://localhost:9099/farmer/my-product
 		@PostMapping("/my-product")
 	public List<Product> getMyProduct(@RequestBody Farmer farmer)
 	{
 		
 		
-		int fid = farmerRepo.findByName(farmer.getUser_name());
+		int fid = farmerRepo.findByUser_name(farmer.getUser_name());
 		
 		List<Product> productList = productRepo.findByFid(fid);  
 		
@@ -145,7 +141,7 @@ public class FarmerController
 		System.out.println(product.getCrop());
 		String uname = product.getFarmer().getUser_name();
 		
-		int fid = farmerRepo.findByName(uname);
+		int fid = farmerRepo.findByUser_name(uname);
 		
 		product.getFarmer().setFid(fid);
 		
@@ -155,36 +151,5 @@ public class FarmerController
 		
 	}
 	
-	@PostMapping("/orders/change-status")
-	public String getDetails(@RequestBody Order order)
-	{
-		System.out.println(order.getOid());
-		
-		int oid = order.getOid();
-		
-		int fid = order.getFarmer().getFid();
-		
-		String crop = order.getCrop_category();
-		
-		double quantityAvailable = productRepo.getQuantity(fid,crop);
-		
-		double quatitytOrdered = order.getQuantity();
-		
-		double quantityRemains = (quantityAvailable)-(quatitytOrdered);
-		
-		if(quantityRemains == 0)
-		{
-			productRepo.deleteQuantityCompletly(fid,crop);
-		}
-		else
-		{
-			productRepo.deductQuantity(fid,quantityRemains,crop);
-		}
-				
-		orderRepo.changeStatus(oid);
-	     
-	    return "approved successfully";
-		
-	}
 	
 }

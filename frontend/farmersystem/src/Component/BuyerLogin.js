@@ -44,7 +44,7 @@ function BuyerLogin()
         console.log(login.user_name);
         setLogin({user_name: '', password: '' });
        
-        window.location = `/buyer-welcome/${login.user_name}`;
+        alert("login success....")
         
       }
       else{

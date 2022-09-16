@@ -1,11 +1,9 @@
-import {useHistory} from "react-router-dom"
 import { useState } from "react";
 
 import axios from "axios";
 
 function CustomProduct()
 {
-    const history = useHistory();
 
     let user = sessionStorage.getItem('authenticatedUser');
 
@@ -29,7 +27,6 @@ function CustomProduct()
         })
         .then((response) => {
           console.log(response.data);
-          history.goBack();
           alert("Product added successfully");
         })
         .catch((error) => {
@@ -41,10 +38,6 @@ function CustomProduct()
 
     return(
         <>
-           <div className="d-flex justify-content-end">
-                <button type="button" className="btn btn-danger mt-3" onClick={history.goBack}>Back</button>
-            </div>
-
             <center><table>
                 
             <div className="d-flex justify-content-center mt-6 flex-column">
