@@ -63,14 +63,14 @@ public class AdminController {
 		
 	}
 	
-	@GetMapping("/buyerlist")
+	@GetMapping("/buyer-list")
 	public List<Buyer> getBuyers()
 	{
 		List<Buyer> buyerList=buyerRepo.findAll();
 		return buyerList;
 	}
 	
-	@GetMapping("/farmerlist")
+	@GetMapping("/farmer-list")
 	public List<Farmer> getFarmers(){
 		
 		List<Farmer> farmerList=farmerRepo.findAll();
