@@ -3,7 +3,10 @@ package com.farmsystem.backend.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +24,8 @@ import com.farmsystem.backend.repository.FarmerRepo;
 import com.farmsystem.backend.repository.OrderRepo;
 import com.farmsystem.backend.repository.ProductRepo;
 
+
+@CrossOrigin
 @RestController
 @RequestMapping("/buyer")
 public class BuyerController 
