@@ -3,6 +3,7 @@ package com.farmsystem.backend.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,8 @@ import com.farmsystem.backend.repository.FarmerRepo;
 import com.farmsystem.backend.repository.OrderRepo;
 import com.farmsystem.backend.repository.ProductRepo;
 
+
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/buyer")
 public class BuyerController 
@@ -89,10 +92,6 @@ public class BuyerController
 		
 		return cartlist;
 	}
-	
-	
-	
-
 	
 
 }

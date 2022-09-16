@@ -96,12 +96,7 @@ public class ProfileController {
 				buyerRepo.updateAddress(buyer.getAddress(), username);
 			}
 			
-			
-			
 			return "updated";
 		}
 	
-	
-	
-
 }// Profile Controller closing
