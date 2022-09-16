@@ -9,47 +9,32 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity 
+@Entity
 @Table(name="products")
-public class Product {
-
+public class Product 
+{
 	@Id
-	@Column(name="pid")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="pid")
 	private int pid;
 	
 	@ManyToOne
 	@JoinColumn(name="fid")
 	private Farmer farmer;
 	
-	@Column(name="crop")
+	@Column(name= "crop")
 	private String crop;
 	
-	@Column(name="quantity")
+	@Column(name= "quantity")
 	private double quantity;
 	
-	@Column(name="expected_price")
-	private double expected_price;
+	@Column(name= "expected_Price")
+	private double expected_Price;
+
 	
-	public Product() {
-				
-	}
-	
-	public Product(int pid, Farmer farmer, String crop, double quantity, double expected_price) {
-		super();
-		this.pid = pid;
-		this.farmer = farmer;
-		this.crop = crop;
-		this.quantity = quantity;
-		this.expected_price = expected_price;
-	}
-
-
-
 	public int getPid() {
 		return pid;
 	}
-
 
 
 	public void setPid(int pid) {
@@ -57,11 +42,9 @@ public class Product {
 	}
 
 
-
 	public Farmer getFarmer() {
 		return farmer;
 	}
-
 
 
 	public void setFarmer(Farmer farmer) {
@@ -69,11 +52,9 @@ public class Product {
 	}
 
 
-
 	public String getCrop() {
 		return crop;
 	}
-
 
 
 	public void setCrop(String crop) {
@@ -81,11 +62,9 @@ public class Product {
 	}
 
 
-
 	public double getQuantity() {
 		return quantity;
 	}
-
 
 
 	public void setQuantity(double quantity) {
@@ -93,20 +72,29 @@ public class Product {
 	}
 
 
-
-	public double getExpected_price() {
-		return expected_price;
+	public double getExpected_Price() {
+		return expected_Price;
 	}
 
 
-
-	public void setExpected_price(double expected_price) {
-		this.expected_price = expected_price;
+	public void setExpected_Price(double expected_Price) {
+		this.expected_Price = expected_Price;
 	}
 
 
+	public Product(int pid, Farmer farmer, String crop, double quantity, double expected_Price) {
+		super();
+		this.pid = pid;
+		this.farmer = farmer;
+		this.crop = crop;
+		this.quantity = quantity;
+		this.expected_Price = expected_Price;
+	}
+
+
+	public Product() {
+		
+	}
 
 	
-
-
 }

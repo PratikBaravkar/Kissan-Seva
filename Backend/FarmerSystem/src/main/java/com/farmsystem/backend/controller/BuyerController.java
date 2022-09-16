@@ -1,7 +1,13 @@
 package com.farmsystem.backend.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.Properties;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -28,10 +34,16 @@ import com.farmsystem.backend.repository.ProductRepo;
 @CrossOrigin
 @RestController
 @RequestMapping("/buyer")
-public class BuyerController 
-{
+public class BuyerController {
+
 	@Autowired
 	BuyerRepo buyerRepo;
+	
+	@Autowired
+	OrderRepo orderRepo;
+	
+	@Autowired
+	ProductRepo productRepo;
 	
 	@Autowired
 	BuyerCartRepo buyercartRepo;
@@ -39,69 +51,72 @@ public class BuyerController
 	@Autowired
 	FarmerRepo farmerRepo;
 	
-	@Autowired
-	ProductRepo productRepo;
 	
-	@Autowired
-	OrderRepo orderRepo;
 	
 	@PostMapping("/login")
-	public String loginUser(@RequestBody Buyer buyer)
-	{
-		System.out.println(buyer.getPassword());
-		System.out.println(buyer.getUser_name());
-		List<Buyer>buyerList = buyerRepo.findAll();
-		
-		String passMsg = "pass";
-		String failMsg = "fail";
-		
-		for(Buyer buyerobj : buyerList )
-		{
-			if(buyerobj.getUser_name().equals(buyer.getUser_name()) && buyerobj.getPassword().equals(buyer.getPassword()))
+	public String loginUser(@RequestBody Buyer buyer) {
+	        
+			System.out.println(buyer.getPassword());
+			System.out.println(buyer.getUser_name());
+			List<Buyer> buyerList = buyerRepo.findAll();              
+			
+			String passMsg = "pass" ;
+			String failMsg = "fail" ;
+			
+			for(Buyer buyerobj : buyerList )
 			{
-				return passMsg ;
+			if(buyerobj.getUser_name().equals(buyer.getUser_name()) && buyerobj.getPassword().equals(buyer.getPassword()))
+				{
+					
+					return passMsg ;
+				}
 			}
-		}
-		return failMsg;
 		
+		return failMsg;
 	}
 	
 	@PostMapping("/Registration")
-	public String regFarmer(@RequestBody Buyer buyer)
-	{
-		buyerRepo.save(buyer);
-		return "register_success";
+	public String regFarmer(@RequestBody Buyer buyer) {
+
+		     
+		    buyerRepo.save(buyer);
+		     
+		    return "register_success";
+		    
 	}
 	
-	
 	@PostMapping("/search")
-	public List<Product>searchProduct(@RequestBody Product prod)
-	{
-		String item = prod.getCrop();
-		List<Product>productList = productRepo.findProduct(item);
+	public List<Product> searchProduct(@RequestBody Product prod) {
+	        
+			String item = prod.getCrop();
+			List<Product> productList = productRepo.findProduct(item);              
 		
 		return productList;
 	}
 	
 	@PostMapping("/allsearch")
-	public List<Product>searchProduct()
-	{
-		List<Product>productList = productRepo.findAll();
+	public List<Product> searchProduct() {
+	        
+			
+			List<Product> productList = productRepo.findAll();              
+		
 		return productList;
 	}
 	
+	
 	@PostMapping("/myCart")
-	public List<BuyerCart> buyerCart() 
-	{
+	public List<BuyerCart> buyerCart() {
 	        
+			
 		List<BuyerCart> cartlist = buyercartRepo.findAll();              
 		
 		return cartlist;
 	}
 	
-	@PostMapping("/confirmed-orders")
-	public List<Order> buyerCart(@RequestBody Buyer buyer) 
-	{
+	//http://localhost:9099/buyer/confirmed-orders
+		
+		@PostMapping("/confirmed-orders")
+	public List<Order> buyerCart(@RequestBody Buyer buyer) {
 	        
 			System.out.println(buyer.getUser_name());
 			String uname = buyer.getUser_name();
@@ -113,53 +128,48 @@ public class BuyerController
 			return orderList;
 		
 	}
-	
-	@PostMapping("/addOrder")
-	public String regFarmer(@RequestBody Order order) {
+		
+		@PostMapping("/addOrder")
+		public String regFarmer(@RequestBody Order order) {
+				
+			String buyeruname = order.getBuyer().getUser_name();
 			
-		String buyeruname = order.getBuyer().getUser_name();
-		
-		System.out.println(buyeruname);
-		int bid = buyerRepo.findByName(buyeruname);
-			order.getBuyer().setBid(bid);
-			
-			String farmername = order.getFarmer().getFirstname();
-			System.out.println(farmername);
-			int fid = farmerRepo.findByFid(farmername);
-			order.getFarmer().setFid(fid);
-		    orderRepo.save(order);
-		     
-		    return "added";
-		    
-	}
-	
-	@GetMapping("/profile/{username}")
-	public Optional<Buyer> getBuyer(@PathVariable String username) 
-	{
-
-		
-		int bid = buyerRepo.findByName(username);
-			          
-		return buyerRepo.findById(bid);
-		    
-	}
-	
-	@GetMapping("/remove/{username}")
-	public String removeFarmer(@PathVariable String username) {
-
-		
-		try {
-			int bid = buyerRepo.findByName(username);
-			buyerRepo.deleteById(bid);
-			return "updated";
-		} catch (Exception e) {
-			return "fails";
+			System.out.println(buyeruname);
+			int bid = buyerRepo.findByName(buyeruname);
+				order.getBuyer().setBid(bid);
+				
+				String farmername = order.getFarmer().getFirstname();
+				System.out.println(farmername);
+				int fid = farmerRepo.findByFid(farmername);
+				order.getFarmer().setFid(fid);
+			    orderRepo.save(order);
+			     
+			    return "added";
+			    
 		}
-		    
-	}
-	
-	
+		
+		@GetMapping("/profile/{username}")
+		public Optional<Buyer> getBuyer(@PathVariable String username) {
 
-	
+			
+			int bid = buyerRepo.findByName(username);
+				          
+			return buyerRepo.findById(bid);
+			    
+		}
+		
+		@GetMapping("/remove/{username}")
+		public String removeFarmer(@PathVariable String username) {
 
+			
+			try {
+				int bid = buyerRepo.findByName(username);
+				buyerRepo.deleteById(bid);
+				return "updated";
+			} catch (Exception e) {
+				return "fails";
+			}
+			    
+		}
+		
 }

@@ -1,19 +1,24 @@
 package com.farmsystem.backend.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="buyers")
-public class Buyer 
+public class Buyer
 {
 	@Id
-	@Column(name="bid")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="bid")
 	private int bid ;
 	
 	@Column(name="firstname")
@@ -101,9 +106,8 @@ public class Buyer
 		this.address = address;
 	}
 
-	public Buyer() 
-	{
+	public Buyer() {
 		
 	}
-
+	
 }

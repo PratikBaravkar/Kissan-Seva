@@ -1,5 +1,4 @@
 package com.farmsystem.backend.repository;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -8,10 +7,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.farmsystem.backend.entity.Buyer;
 
-public interface BuyerRepo extends JpaRepository<Buyer, Integer> 
+public interface BuyerRepo extends JpaRepository<Buyer, Integer>
 {
 	@Query( nativeQuery = true,value="select bid from buyers where user_name=:user_name")
 	public int findByName(@Param("user_name") String user_name);
+	
 	
 	@Modifying
 	@Transactional
@@ -42,5 +42,5 @@ public interface BuyerRepo extends JpaRepository<Buyer, Integer>
 	@Transactional
 	@Query( nativeQuery = true,value="update buyers set  address =:address  where user_name=:user_name")
 	public void updateAddress(@Param("address") String address,@Param("user_name") String user_name );
-
+	
 }

@@ -12,8 +12,8 @@ import javax.persistence.Table;
 public class BuyerCart 
 {
 	@Id
-	@Column(name="cartid")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="cartid")
 	private int cartid;
 	
 	@Column(name="buyerusername")
@@ -81,5 +81,4 @@ public class BuyerCart
 
 	}
 	
-
 }
