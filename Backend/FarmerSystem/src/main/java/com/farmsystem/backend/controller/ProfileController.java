@@ -16,7 +16,7 @@ import com.farmsystem.backend.repository.FarmerRepo;
 import com.farmsystem.backend.repository.OrderRepo;
 import com.farmsystem.backend.repository.ProductRepo;
 
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("change-profile")
 public class ProfileController 

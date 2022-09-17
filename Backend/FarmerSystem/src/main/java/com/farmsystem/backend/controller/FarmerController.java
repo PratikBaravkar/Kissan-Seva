@@ -19,7 +19,7 @@ import com.farmsystem.backend.repository.OrderRepo;
 import com.farmsystem.backend.repository.ProductRepo;
 
 
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/farmer")
 public class FarmerController 
@@ -33,13 +33,10 @@ public class FarmerController
 	@Autowired
 	ProductRepo productRepo;
 	
-	
-
-	
 		
 	@GetMapping("/remove/{username}")
 	public String removeFarmer(@PathVariable String username) {
-
+		//for removing farmer details by username
 		
 		int fid = farmerRepo.findByUser_name(username);
 			          
@@ -62,6 +59,7 @@ public class FarmerController
 	@PostMapping("/forgot-password")
 	public String forgotPassword(@RequestBody Farmer farmer)
 	{
+		//for resetting newpassword for existing farmer
 		String username = farmer.getUser_name();
 		String newpassword = farmer.getPassword();
 		
@@ -72,12 +70,10 @@ public class FarmerController
 	
 	@PostMapping("/Registration")
 	public String regFarmer(@RequestBody Farmer farmer) {
-
+		//for new farmer registration
 		System.out.println(farmer.toString());
 
 		    farmerRepo.save(farmer);
-		    
-		   
 		     
 		    return "register_success";
 		    
@@ -86,7 +82,7 @@ public class FarmerController
 	
 	@PostMapping("/login")
 	public String loginUser(@RequestBody Farmer farmer) {
-	        
+	        //for farmer login
 			System.out.println(farmer.getUser_name());
 		
 			List<Farmer> farmerList = farmerRepo.findAll();              
@@ -111,6 +107,7 @@ public class FarmerController
 	@PostMapping("/orders")
 	public List<Order> getDetails(@RequestBody Farmer farmer)
 	{
+		//for getting orders of farmer
 		String uname = farmer.getUser_name();
 		
 		int fid = farmerRepo.findByUser_name(uname);
@@ -124,7 +121,7 @@ public class FarmerController
 		@PostMapping("/my-product")
 	public List<Product> getMyProduct(@RequestBody Farmer farmer)
 	{
-		
+		//for returning productlist of specific farmer
 		
 		int fid = farmerRepo.findByUser_name(farmer.getUser_name());
 		
@@ -138,6 +135,7 @@ public class FarmerController
 	@PostMapping("/add-product")
 	public String getDetails(@RequestBody Product product)
 	{
+		//for getting product details and save
 		System.out.println(product.getCrop());
 		String uname = product.getFarmer().getUser_name();
 		

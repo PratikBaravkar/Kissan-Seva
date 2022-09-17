@@ -18,7 +18,7 @@ import com.farmsystem.backend.entity.Product;
 import com.farmsystem.backend.repository.BuyerCartRepo;
 import com.farmsystem.backend.repository.ProductRepo;
 
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/buyer-cart")
 public class BuyerCartController 
