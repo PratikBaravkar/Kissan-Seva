@@ -22,7 +22,6 @@ function FarmerLogin()
     
     var [login, setLogin] = useState({ user_name: '', password: '' });
 
-    // var [hasLoginFailed, sethasLoginFailed] = useState(false);
     var handleChange = (e) => {
         e.preventDefault();
         var name = e.target.name;
