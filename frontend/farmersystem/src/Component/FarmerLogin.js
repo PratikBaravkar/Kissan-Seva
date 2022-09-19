@@ -6,6 +6,7 @@ import { useEffect } from "react";
 
 function FarmerLogin()
 {
+
   const myStyle={
     backgroundImage: 
 "url('https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')",
@@ -22,6 +23,7 @@ function FarmerLogin()
     
     var [login, setLogin] = useState({ user_name: '', password: '' });
 
+    // var [hasLoginFailed, sethasLoginFailed] = useState(false);
     var handleChange = (e) => {
         e.preventDefault();
         var name = e.target.name;
@@ -47,12 +49,12 @@ function FarmerLogin()
         AuthenticateService.farmerLogin(login.user_name);
 
         setLogin({user_name: '', password: '' });
-        alert("login success....")
+        window.location = `/farmer-welcome/${login.user_name}`;
         
       }
       else{
         console.log(login.user_name);
-       
+       // sethasLoginFailed(true);
        setLogin({user_name: '', password: '' });
         alert("Invalid Password/Username");
 
