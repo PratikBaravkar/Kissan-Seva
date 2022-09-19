@@ -57,13 +57,7 @@ function Header()
                                     <li><Link className="dropdown-item" to="/buyer-login">Buyer Login</Link></li>
                                     <li><Link className="dropdown-item" to="/admin-login">Admin Login</Link></li>
                                 </ul>
-                            </li>}
-
-                            {  AuthenticateService.isUserLoggedIn() && 
-                            <li className="nav-item">
-                            <a className="nav-link" href="/" onClick={AuthenticateService.logout}>Logout</a>
-                            
-                            </li>
+                           
                             }
 
                             {           
