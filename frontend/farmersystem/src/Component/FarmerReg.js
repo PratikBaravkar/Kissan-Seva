@@ -3,24 +3,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 function FarmerReg()
 {
-  const myStyle={
-    backgroundImage: 
-"url('https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg')",
-    height:'10vh',
-    marginTop:'0px',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-};
-const myStyle1={
-  backgroundImage: 
-"url('https://scx2.b-cdn.net/gfx/news/2017/farming.jpg')",
-
-  height:'130vh',
-  marginTop:'0px',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-  borderRadius: "25px"
-};
 
     const [regestration, setRegestration] = useState({
       firstname: "",
@@ -188,10 +170,10 @@ function addressValidation(){
       <>
       {/* <section className="vh-100" > */}
       <div>
-        <div className="container h-100" style={myStyle}>
+        <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-lg-8 col-xl-9">
-              <div className="card text-black" style={myStyle1}>
+              <div className="card text-black" style={{ borderRadius: "25px" }}>
                 <div className="card-body p-md-5">
                   <div className="row justify-content-center">
                     <div className="col-md-10 col-lg-6 col-xl-7 order-2 order-lg-1">
@@ -212,7 +194,6 @@ function addressValidation(){
                               value={regestration.firstname}
                               onChange={handleChange}
                               onBlur={firstNameValidation}
-                              style={{backgroundColor:"white"}}
                             />
                           </div>
                           <div>
@@ -233,7 +214,6 @@ function addressValidation(){
                               value={regestration.lastname}
                               onChange={handleChange}
                               onBlur={lastNameValidation}
-                              style={{backgroundColor:"white"}}
                             />
                           </div>
                           <div>
@@ -254,7 +234,6 @@ function addressValidation(){
                               value={regestration.email}
                               onChange={handleChange}
                               onBlur={emailValidation}
-                              style={{backgroundColor:"white"}}
                             />
                           </div>
                           <div>
@@ -275,7 +254,6 @@ function addressValidation(){
                               value={regestration.contact}
                               onChange={handleChange}
                               onBlur={contactNoValidation}
-                              style={{backgroundColor:"white"}}
                             />
                           </div>
                           <div>
@@ -294,7 +272,6 @@ function addressValidation(){
                               value={regestration.address}
                               onChange={handleChange}
                               onBlur={addressValidation}
-                              style={{backgroundColor:"white"}}
                             />
                           </div>
                           <div>
@@ -317,7 +294,6 @@ function addressValidation(){
                               value={regestration.user_name}
                               onChange={handleChange}
                               onBlur={userNameValidation}
-                              style={{backgroundColor:"white"}}
                             />
                           </div>
                           <div>
@@ -338,7 +314,6 @@ function addressValidation(){
                               value={regestration.password}
                               onChange={handleChange}
                               onBlur={passwordValidation}
-                              style={{backgroundColor:"white"}}
                             />
                           </div>
                           <div>
