@@ -20,4 +20,9 @@ public interface OrderRepo  extends JpaRepository<Order, Integer>
 	@Query(name="byName", nativeQuery = true,value="select * from orders where bid=:bid && status='approved'")
 	public List<Order> findByBId(@Param("bid") int bid);
 
+	@Modifying
+	@Transactional
+	@Query(name="changeStatus", nativeQuery = true,value="update Orders set status= 'approved' where oid=:oid")
+	public void changeStatus(@Param("oid") int oid);
+
 }

@@ -48,7 +48,7 @@ public class FarmerController
 	
 	@GetMapping("/profile/{username}")
 	public Optional<Farmer> getFarmer(@PathVariable String username) {
-
+		// for finding farmer using username
 		int fid = farmerRepo.findByUser_name(username);
 			          
 		return farmerRepo.findById(fid);
@@ -81,7 +81,7 @@ public class FarmerController
 	
 	@PostMapping("/login")
 	public String loginUser(@RequestBody Farmer farmer) {
-	        //for farmer login
+	        //for farmer login validation
 			System.out.println(farmer.getUser_name());
 		
 			List<Farmer> farmerList = farmerRepo.findAll();              
@@ -95,11 +95,9 @@ public class FarmerController
 				{								
 					return passMsg ;
 				}
-			}
-		
+			}		
 		return failMsg;
-	}
-	
+	}	
 	
 	@PostMapping("/orders")
 	public List<Order> getDetails(@RequestBody Farmer farmer)
@@ -111,22 +109,18 @@ public class FarmerController
 		
 		List<Order> orderList = orderRepo.findById(fid);  
 		
-		return orderList;
-		
+		return orderList;		
 	}
 	
 		@PostMapping("/my-product")
 	public List<Product> getMyProduct(@RequestBody Farmer farmer)
 	{
-		//for returning product list of specific farmer
-		
+		//for returning product list of specific farmer		
 		int fid = farmerRepo.findByUser_name(farmer.getUser_name());
 		
 		List<Product> productList = productRepo.findByFarmerFid(fid);  
 		
-		return productList;
-
-		
+		return productList;		
 	}
 	
 	@PostMapping("/add-product")
@@ -147,5 +141,35 @@ public class FarmerController
 		
 	}
 	
-	
+	@PostMapping("/orders/change-status")
+	public String getDetails(@RequestBody Order order)
+	{
+		// updating trasaction for order done by buyer from farmer in product table and changing order status
+		System.out.println(order.getOid());		
+
+		int oid = order.getOid();		
+		int fid = order.getFarmer().getFid();
+		
+		String crop = order.getCrop_category();
+		
+		double quantityAvailable = productRepo.getQuantity(fid,crop);		
+		double quatitytOrdered = order.getQuantity();
+		//calculating
+		double quantityRemains = (quantityAvailable)-(quatitytOrdered);
+		
+		if(quantityRemains == 0)
+		{
+			//deleting crop quantity for farmer in product table
+			productRepo.deleteQuantityCompletly(fid,crop);
+		}
+		else
+		{
+			//updating remaining quantity in product table
+			productRepo.deductQuantity(fid, quantityRemains, crop);			
+		}
+				
+		orderRepo.changeStatus(oid);  //changing status in order table
+	    return "approved successfully";
+		
+	}
 }
