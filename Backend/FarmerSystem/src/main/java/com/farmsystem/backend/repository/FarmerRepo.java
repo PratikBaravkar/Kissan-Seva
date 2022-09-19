@@ -13,16 +13,16 @@ import com.farmsystem.backend.entity.Farmer;
 
 public interface FarmerRepo  extends JpaRepository<Farmer, Integer>
 {
-	
 
 	@Query( nativeQuery = true,value="select fid from farmers where user_name=:user_name")
 	public int findByUser_name(@Param("user_name") String user_name);
 	
 	@Query( nativeQuery = true,value="select fid from farmers where firstname=:name")
-	public int findByFid(@Param("name") String name);
+	public int findByFirstname(@Param("name") String name);
 	
 	@Modifying
-	@Transactional
+	@Transactional 
+	//Transactions means all or nothing
 	@Query( nativeQuery = true,value="update farmers set firstname=:firstname where user_name=:user_name")
 	public void updateFirstName(@Param("firstname") String firstname,@Param("user_name") String user_name );
 	
@@ -42,7 +42,7 @@ public interface FarmerRepo  extends JpaRepository<Farmer, Integer>
 	public void updateContact(@Param("contact") String contact,@Param("user_name") String user_name );
 	
 	@Modifying
-	@Transactional
+	@Transactional 
 	@Query( nativeQuery = true,value="update farmers set password=:password  where user_name=:user_name")
 	public void updatePassword(@Param("password") String password,@Param("user_name") String user_name );
 	

@@ -34,7 +34,7 @@ public class Farmer
 	@Column(name="address")
 	private String address;
 	
-	@Column(name="user_name")
+	@Column(name="user_name", unique=true)
 	private String user_name;
 
 
@@ -114,8 +114,7 @@ public class Farmer
 		this.email = email;
 		this.password = password;
 		this.address = address;
-		this.user_name = user_name;
-		
+		this.user_name = user_name;	
 	}
 
 	public Farmer() {

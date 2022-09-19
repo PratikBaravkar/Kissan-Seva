@@ -28,7 +28,7 @@ public class Admin
 	@Column(name="password")
 	private String password;
 	
-	@Column(name="user_name")
+	@Column(name="user_name",unique=true )
 	private String user_name;
 	
 	public String getFirstname() {

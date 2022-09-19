@@ -18,10 +18,9 @@ public class Order
 	@Column(name="oid")
 	private int oid;
 	
-	@ManyToOne
+	@ManyToOne //many order one farmer
 	@JoinColumn(name="fid")
-	private Farmer farmer;
-	
+	private Farmer farmer;	
 	
 	@Column(name= "crop_category")
 	private String crop_category;
@@ -33,10 +32,9 @@ public class Order
 	private double total_amount;
 	
 	@Column(name="status")
-	private String status;
-	
+	private String status;	
 
-	@ManyToOne
+	@ManyToOne 
 	@JoinColumn(name="bid")
 	private Buyer buyer;
 

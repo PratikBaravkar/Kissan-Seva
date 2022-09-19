@@ -140,7 +140,7 @@ public class BuyerController {
 				
 				String farmername = order.getFarmer().getFirstname();
 				System.out.println(farmername);
-				int fid = farmerRepo.findByFid(farmername);
+				int fid = farmerRepo.findByFirstname(farmername);
 				order.getFarmer().setFid(fid);
 			    orderRepo.save(order);
 			     

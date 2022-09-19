@@ -49,7 +49,6 @@ public class FarmerController
 	@GetMapping("/profile/{username}")
 	public Optional<Farmer> getFarmer(@PathVariable String username) {
 
-		
 		int fid = farmerRepo.findByUser_name(username);
 			          
 		return farmerRepo.findById(fid);
@@ -59,7 +58,7 @@ public class FarmerController
 	@PostMapping("/forgot-password")
 	public String forgotPassword(@RequestBody Farmer farmer)
 	{
-		//for resetting newpassword for existing farmer
+		//for resetting new password for existing farmer
 		String username = farmer.getUser_name();
 		String newpassword = farmer.getPassword();
 		
@@ -93,9 +92,7 @@ public class FarmerController
 			for(Farmer farmerobj : farmerList )
 			{
 			if(farmerobj.getUser_name().equals(farmer.getUser_name()) && farmerobj.getPassword().equals(farmer.getPassword()))
-				{
-				
-					
+				{								
 					return passMsg ;
 				}
 			}
@@ -121,11 +118,11 @@ public class FarmerController
 		@PostMapping("/my-product")
 	public List<Product> getMyProduct(@RequestBody Farmer farmer)
 	{
-		//for returning productlist of specific farmer
+		//for returning product list of specific farmer
 		
 		int fid = farmerRepo.findByUser_name(farmer.getUser_name());
 		
-		List<Product> productList = productRepo.findByFid(fid);  
+		List<Product> productList = productRepo.findByFarmerFid(fid);  
 		
 		return productList;
 
@@ -135,8 +132,9 @@ public class FarmerController
 	@PostMapping("/add-product")
 	public String getDetails(@RequestBody Product product)
 	{
-		//for getting product details and save
+		//for getting product details and save for farmer
 		System.out.println(product.getCrop());
+		
 		String uname = product.getFarmer().getUser_name();
 		
 		int fid = farmerRepo.findByUser_name(uname);
