@@ -15,30 +15,30 @@ public class Buyer
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="bid")
 	private int bid ;
-	
+
 	@Column(name="firstname")
 	private String firstname ;
-	
+
 	@Column(name="lastname")
 	private String lastname ;
-	
+
 	@Column(name="contact")
 	private String contact ;
-	
+
 	@Column(name="email")
 	private String email ;
-	
+
 	@Column(name="user_name")
 	private String user_name ;
-	
+
 	@Column(name="password")
 	private String password ;
-	
+
 
 	@Column(name="address")
 	private String address ;
-	
-	
+
+
 	public String getAddress() {
 		return address;
 	}
@@ -87,7 +87,7 @@ public class Buyer
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public Buyer(int bid, String firstname, String lastname, String contact, String email, String user_name,
 			String password,String address) {
 		super();
@@ -102,7 +102,7 @@ public class Buyer
 	}
 
 	public Buyer() {
-		
+
 	}
-	
+
 }

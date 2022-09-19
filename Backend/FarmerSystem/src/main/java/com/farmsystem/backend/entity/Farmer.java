@@ -11,8 +11,7 @@ import javax.persistence.Table;
 @Table(name="farmers")
 public class Farmer 
 {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id	
 	@Column(name="fid")
 	private int fid;
 	
@@ -34,7 +33,7 @@ public class Farmer
 	@Column(name="address")
 	private String address;
 	
-	@Column(name="user_name", unique=true)
+	@Column(name="user_name")
 	private String user_name;
 
 
@@ -114,7 +113,8 @@ public class Farmer
 		this.email = email;
 		this.password = password;
 		this.address = address;
-		this.user_name = user_name;	
+		this.user_name = user_name;
+		
 	}
 
 	public Farmer() {

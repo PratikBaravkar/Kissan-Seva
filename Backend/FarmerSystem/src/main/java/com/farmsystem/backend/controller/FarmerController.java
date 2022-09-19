@@ -112,7 +112,7 @@ public class FarmerController
 		return orderList;		
 	}
 	
-		@PostMapping("/my-product")
+	@PostMapping("/my-product") //http://localhost:9099/farmer/my-product
 	public List<Product> getMyProduct(@RequestBody Farmer farmer)
 	{
 		//for returning product list of specific farmer		
@@ -137,8 +137,7 @@ public class FarmerController
 		
 		productRepo.save(product);
 	     
-	    return "register_success";
-		
+	    return "register_success";		
 	}
 	
 	@PostMapping("/orders/change-status")
