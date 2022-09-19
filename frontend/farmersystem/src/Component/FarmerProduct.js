@@ -1,11 +1,11 @@
-
+import {useHistory} from "react-router-dom"
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
 
 function Product(){
-   
+    const history = useHistory();
     let user = sessionStorage.getItem('authenticatedUser');
     const [product,setProduct] = useState({ farmer:{user_name: user}, crop: '' , quantity:'' ,expected_Price:''});
 
@@ -52,6 +52,11 @@ function Product(){
             
             <div className="d-flex justify-content-end">
                 <button type="button" className="btn btn-danger mt-3" ><Link className="dropdown-item" to="/farmer/custom-product">Add Your Product</Link></button>
+            </div>
+
+
+            <div className="d-flex justify-content-end">
+                <button type="button" className="btn btn-danger mt-3" onClick={history.goBack}>Back</button>
             </div>
 
             <div className=" container  d-flex flex-direction: column  justify-content-evenly ">
