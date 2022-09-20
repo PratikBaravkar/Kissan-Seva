@@ -18,8 +18,8 @@ public class Product
 	@Column(name="pid")
 	private int pid;
 	
-	@ManyToOne //many product one farmer
-	@JoinColumn(name="fid") //foreign key constraints
+	@ManyToOne
+	@JoinColumn(name="fid")
 	private Farmer farmer;
 	
 	@Column(name= "crop")

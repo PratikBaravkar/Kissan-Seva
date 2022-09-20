@@ -1,7 +1,25 @@
 package com.farmsystem.backend.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.Properties;
+
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.farmsystem.backend.entity.Buyer;
 import com.farmsystem.backend.entity.BuyerCart;
+import com.farmsystem.backend.entity.Farmer;
 import com.farmsystem.backend.entity.Order;
 import com.farmsystem.backend.entity.Product;
 import com.farmsystem.backend.repository.BuyerCartRepo;
@@ -20,9 +39,14 @@ import com.farmsystem.backend.repository.BuyerRepo;
 import com.farmsystem.backend.repository.FarmerRepo;
 import com.farmsystem.backend.repository.OrderRepo;
 import com.farmsystem.backend.repository.ProductRepo;
+import com.lowagie.text.Document;
+import com.lowagie.text.Font;
+import com.lowagie.text.FontFactory;
+import com.lowagie.text.PageSize;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.PdfWriter;
 
-
-@CrossOrigin(origins = "*")
+@CrossOrigin
 @RestController
 @RequestMapping("/buyer")
 public class BuyerController {
@@ -104,7 +128,7 @@ public class BuyerController {
 		return cartlist;
 	}
 	
-	
+	//http://localhost:9099/buyer/confirmed-orders
 		
 		@PostMapping("/confirmed-orders")
 	public List<Order> buyerCart(@RequestBody Buyer buyer) {
@@ -131,7 +155,7 @@ public class BuyerController {
 				
 				String farmername = order.getFarmer().getFirstname();
 				System.out.println(farmername);
-				int fid = farmerRepo.findByFirstname(farmername);
+				int fid = farmerRepo.findByFid(farmername);
 				order.getFarmer().setFid(fid);
 			    orderRepo.save(order);
 			     
@@ -162,5 +186,9 @@ public class BuyerController {
 			}
 			    
 		}
+		
+		
+		
+	
 		
 }

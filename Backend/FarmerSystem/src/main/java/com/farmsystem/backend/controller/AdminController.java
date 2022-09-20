@@ -23,7 +23,7 @@ import com.farmsystem.backend.repository.ProductRepo;
 
 
 
-@CrossOrigin(origins = "*")
+@CrossOrigin
 @RestController
 @RequestMapping("/admin")
 public class AdminController 

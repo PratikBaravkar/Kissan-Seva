@@ -18,7 +18,7 @@ import com.farmsystem.backend.entity.Product;
 import com.farmsystem.backend.repository.BuyerCartRepo;
 import com.farmsystem.backend.repository.ProductRepo;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin
 @RestController
 @RequestMapping("/buyer-cart")
 public class BuyerCartController 
@@ -32,14 +32,12 @@ public class BuyerCartController
 	
 	@PostMapping("/add")
 	public String regFarmer(@RequestBody BuyerCart cart) {
-		//adding items
 		buyercartRepo.save(cart);
-	 	return  "added_successfully"   ; 
+	 return  "added_successfully"   ; 
 	}
 	
 	@PostMapping("/remove")
 	public String removeItem(@RequestBody BuyerCart cart) {
-	//removing items
 	 buyercartRepo.deleteById(cart.getCartid());
 	 return  "deleted_successfully"   ; 
 	}

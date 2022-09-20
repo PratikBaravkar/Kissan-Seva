@@ -17,7 +17,6 @@ import CustomProduct from './components/CustomProduct';
 import BuyerWelcome from './components/BuyerWelcome';
 import BuyerProduct from './components/BuyerProduct';
 import BuyerCart from './components/BuyerCart';
-import TermsandCondition from './components/TermsAndCondition';
 import BuyerPay from './components/BuyerPay';
 import BuyerProfile from './components/BuyerProfile';
 import FarmerProfile from './components/FarmerProfile';
@@ -51,7 +50,6 @@ function App() {
           {/* <AuthenticatedRout path="/farmer-product/add-product/wheat"  component={Product} /> */}
           <AuthenticatedRout path="/buyer-welcome/:username"  component={BuyerWelcome} />  
           <AuthenticatedRout path="/buyer-myCart"  component={BuyerCart} />
-          <Route path="/terms-condition" component={TermsandCondition}/>
           <AuthenticatedRout path="/buyer-pay/:payment" component={BuyerPay}/>
           <AuthenticatedRout path="/farmer/profile" component={FarmerProfile}/>
           <AuthenticatedRout path="/admin-welcome/:username"  component={AdminWelcome} />

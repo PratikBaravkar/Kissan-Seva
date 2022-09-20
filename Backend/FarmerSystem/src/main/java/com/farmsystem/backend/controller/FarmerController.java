@@ -1,7 +1,24 @@
 package com.farmsystem.backend.controller;
 
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.Properties;
+import java.io.File;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +34,14 @@ import com.farmsystem.backend.entity.Product;
 import com.farmsystem.backend.repository.FarmerRepo;
 import com.farmsystem.backend.repository.OrderRepo;
 import com.farmsystem.backend.repository.ProductRepo;
+import com.lowagie.text.Document;
+import com.lowagie.text.Font;
+import com.lowagie.text.FontFactory;
+import com.lowagie.text.PageSize;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.PdfWriter;
 
-
-@CrossOrigin(origins = "*")
+@CrossOrigin
 @RestController
 @RequestMapping("/farmer")
 public class FarmerController 
@@ -33,12 +55,15 @@ public class FarmerController
 	@Autowired
 	ProductRepo productRepo;
 	
+	
+
+	
 		
 	@GetMapping("/remove/{username}")
 	public String removeFarmer(@PathVariable String username) {
-		//for removing farmer details by username
+
 		
-		int fid = farmerRepo.findByUser_name(username);
+		int fid = farmerRepo.findByName(username);
 			          
 		 farmerRepo.deleteById(fid);
 		 
@@ -48,8 +73,9 @@ public class FarmerController
 	
 	@GetMapping("/profile/{username}")
 	public Optional<Farmer> getFarmer(@PathVariable String username) {
-		// for finding farmer using username
-		int fid = farmerRepo.findByUser_name(username);
+
+		
+		int fid = farmerRepo.findByName(username);
 			          
 		return farmerRepo.findById(fid);
 		    
@@ -58,7 +84,6 @@ public class FarmerController
 	@PostMapping("/forgot-password")
 	public String forgotPassword(@RequestBody Farmer farmer)
 	{
-		//for resetting new password for existing farmer
 		String username = farmer.getUser_name();
 		String newpassword = farmer.getPassword();
 		
@@ -69,10 +94,15 @@ public class FarmerController
 	
 	@PostMapping("/Registration")
 	public String regFarmer(@RequestBody Farmer farmer) {
-		//for new farmer registration
-		System.out.println(farmer.toString());
 
+		System.out.println(farmer.toString());
+//		    BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();	
+//		    String encodedPassword = passwordEncoder.encode(user.getPassword());
+//		    user.setPassword(encodedPassword);
+		     
 		    farmerRepo.save(farmer);
+		    
+		   
 		     
 		    return "register_success";
 		    
@@ -81,7 +111,7 @@ public class FarmerController
 	
 	@PostMapping("/login")
 	public String loginUser(@RequestBody Farmer farmer) {
-	        //for farmer login validation
+	        
 			System.out.println(farmer.getUser_name());
 		
 			List<Farmer> farmerList = farmerRepo.findAll();              
@@ -92,83 +122,91 @@ public class FarmerController
 			for(Farmer farmerobj : farmerList )
 			{
 			if(farmerobj.getUser_name().equals(farmer.getUser_name()) && farmerobj.getPassword().equals(farmer.getPassword()))
-				{								
+				{
+				
+					
 					return passMsg ;
 				}
-			}		
+			}
+		
 		return failMsg;
-	}	
+	}
+	
 	
 	@PostMapping("/orders")
 	public List<Order> getDetails(@RequestBody Farmer farmer)
 	{
-		//for getting orders of farmer
 		String uname = farmer.getUser_name();
 		
-		int fid = farmerRepo.findByUser_name(uname);
+		int fid = farmerRepo.findByName(uname);
 		
 		List<Order> orderList = orderRepo.findById(fid);  
 		
-		return orderList;		
+		return orderList;
+		
 	}
 	
-	@PostMapping("/my-product") //http://localhost:9099/farmer/my-product
+	//http://localhost:9099/farmer/my-product
+		@PostMapping("/my-product")
 	public List<Product> getMyProduct(@RequestBody Farmer farmer)
 	{
-		//for returning product list of specific farmer		
-		int fid = farmerRepo.findByUser_name(farmer.getUser_name());
 		
-		List<Product> productList = productRepo.findByFarmerFid(fid);  
 		
-		return productList;		
+		int fid = farmerRepo.findByName(farmer.getUser_name());
+		
+		List<Product> productList = productRepo.findByFid(fid);  
+		
+		return productList;
+
+		
 	}
 	
 	@PostMapping("/add-product")
 	public String getDetails(@RequestBody Product product)
 	{
-		//for getting product details and save for farmer
 		System.out.println(product.getCrop());
-		
 		String uname = product.getFarmer().getUser_name();
 		
-		int fid = farmerRepo.findByUser_name(uname);
+		int fid = farmerRepo.findByName(uname);
 		
 		product.getFarmer().setFid(fid);
 		
 		productRepo.save(product);
 	     
-	    return "register_success";		
+	    return "register_success";
+		
 	}
 	
 	@PostMapping("/orders/change-status")
 	public String getDetails(@RequestBody Order order)
 	{
-		// updating trasaction for order done by buyer from farmer in product table and changing order status
-		System.out.println(order.getOid());		
-
-		int oid = order.getOid();		
+		System.out.println(order.getOid());
+		
+		int oid = order.getOid();
+		
 		int fid = order.getFarmer().getFid();
 		
 		String crop = order.getCrop_category();
 		
-		double quantityAvailable = productRepo.getQuantity(fid,crop);		
+		double quantityAvailable = productRepo.getQuantity(fid,crop);
+		
 		double quatitytOrdered = order.getQuantity();
-		//calculating
+		
 		double quantityRemains = (quantityAvailable)-(quatitytOrdered);
 		
 		if(quantityRemains == 0)
 		{
-			//deleting crop quantity for farmer in product table
 			productRepo.deleteQuantityCompletly(fid,crop);
 		}
 		else
 		{
-			//updating remaining quantity in product table
-			productRepo.deductQuantity(fid, quantityRemains, crop);			
+			productRepo.deductQuantity(fid,quantityRemains,crop);
 		}
 				
-		orderRepo.changeStatus(oid);  //changing status in order table
+		orderRepo.changeStatus(oid);
+	     
 	    return "approved successfully";
 		
 	}
+	
 }
